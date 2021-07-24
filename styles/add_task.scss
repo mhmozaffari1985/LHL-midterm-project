@@ -1,0 +1,25 @@
+.new-task-container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+
+  .new-task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .new-task-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .new-task-footer {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+    }
+  }
+}
