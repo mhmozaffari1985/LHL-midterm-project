@@ -1,5 +1,9 @@
 node_modules/
 public/styles
+package-lock.json
 .env
 *.log
 *.sqlite3
+.DS_Store
+public/.DS_Store
+package-lock.json
