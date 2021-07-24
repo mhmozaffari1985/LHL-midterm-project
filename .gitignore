@@ -6,3 +6,4 @@ package-lock.json
 *.sqlite3
 .DS_Store
 public/.DS_Store
+package-lock.json
