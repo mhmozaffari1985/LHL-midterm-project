@@ -10,7 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM tasks`;
+    let query = `SELECT * FROM tasks;`;
     console.log(query);
     db.query(query)
       .then(data => {
@@ -23,5 +23,9 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/add", (req, res) => {
+    res.json(req.body)
+  })
   return router;
 };
