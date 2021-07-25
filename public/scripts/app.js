@@ -1,10 +1,10 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
+// Test Script To Print User Names
+
+$(document).ready(function() {
+  $.getJSON('/api/users', function(data){
+    for (const user of data.users) {
+      let $userName = $('<p>').text(user.name);
+      $('body').append($userName);
     }
-  });;
+  })
 });
