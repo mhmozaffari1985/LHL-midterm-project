@@ -53,7 +53,7 @@ $(document).ready(function() {
     return $output;
   };
 
-  
+
 
   // 2. Function to loop through example data set and render all tasks
   const renderTasks = function(data) {
@@ -86,5 +86,5 @@ $(document).ready(function() {
   // 4. Call load function
   loadTasks()
 
-  
+
 });
