@@ -20,7 +20,7 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Link used for tweeter -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/tasks.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/tasks.js"></script> -->
 
   </head>
 
@@ -46,25 +46,23 @@
         <div class='taskContent'>
           <header class='taskHeader'>
             <p class='taskTitle'>'Hello I am a task title'</p>
-            <button class='deleteTask'> Delete Task </button>
+            <button class='deleteTask btn btn-danger'> Delete Task </button>
           </header>
 
           <div class='taskBody'>
             <p class='taskDescription'>'I am a task description that is very long and goes multiple lines because the guy who wrote me can't stop typing and he's still not done but he hasn't even typed in a period yet what poor grammar.'</p>
             <div class='editButtons'>
-              <button>Edit button</button>
-              <button>Save edit</button>
+              <button class="btn btn-outline-secondary"><i class="far fa-edit"></i>Edit</button>
+              <button class="btn btn-outline-secondary"><i class="far fa-save"></i>Save</button>
             </div>
           </div>
 
           <footer class='taskFooter'>
 
             <div class='categoryContainer'>
-              <p class='categories'>'I am a category'</p>
-              <p class='categories'>'I am another category'</p>
+              <span class='categories'>'I am a category'</span>
             </div>
 
-            <button class='addCategory'>Add Category To Item</button>
           </footer>
         </div>
 
