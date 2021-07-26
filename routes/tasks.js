@@ -28,9 +28,9 @@ module.exports = (db) => {
       });
   });
 
-  // POST/tasks/:id route(DELETE):
+  // POST /tasks/:id route (DELETE):
   router.post("/:id", (req, res) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     let queryString = `
       DELETE FROM tasks
       WHERE id = $1
@@ -49,6 +49,27 @@ module.exports = (db) => {
           .json({ error: err.message });
       })
   })
+
+  // POST tasks/status/:id route (status update):
+  router.post("/status/:id", (req, res) => {
+    let queryString = `
+      UPDATE tasks
+      SET status_id = 2
+      WHERE id = $1
+      RETURNING *;
+    `;
+    let queryParams = [req.params.id];
+    
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.redirect('/');
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+  });
 
   // GET/tasks/ redirects to GET/
   router.get("/", (req,res) => {

@@ -7,7 +7,7 @@ $(document).ready(function() {
     const $output = $('<article class="tasks">'); // Output is a tasks class article
 
     // Checkbox
-    const $checkbox = $('<button class="checkbox"></button>');
+    const $checkbox = $(`<button class="checkbox" onClick="checkTask(this, ${data.id})"></button>`);
 
     // Task Content Container
     const $taskContent = $('<div class="taskContent">');
@@ -15,7 +15,7 @@ $(document).ready(function() {
     // Task Header Tags
     const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
     const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteItem(${data.id})">`).text('Delete Task'); // Set delete button tag
+    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('Delete Task'); // Set delete button tag
 
     // Append Header Tags
     $taskHeader.append($taskTitle).append($deleteTask);
@@ -60,8 +60,10 @@ $(document).ready(function() {
     $('#allTasks').html(''); // Clears default text
 
     for (const someTask of data) { // loops through tasks
-      $task = createTaskElement(someTask); // calls createTaskElement for each task
-      $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      if (someTask.status_id === 1) {
+        $task = createTaskElement(someTask); // calls createTaskElement for each task
+        $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      }
     }
   };
 
