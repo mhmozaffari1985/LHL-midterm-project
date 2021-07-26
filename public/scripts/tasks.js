@@ -15,7 +15,7 @@ $(document).ready(function() {
     // Task Header Tags
     const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
     const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-    const $deleteTask = $('<button class="deleteTask btn btn-danger">').text('Delete Task'); // Set delete button tag
+    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteItem(${data.id})">`).text('Delete Task'); // Set delete button tag
 
     // Append Header Tags
     $taskHeader.append($taskTitle).append($deleteTask);
@@ -62,22 +62,6 @@ $(document).ready(function() {
     for (const someTask of data) { // loops through tasks
       $task = createTaskElement(someTask); // calls createTaskElement for each task
       $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
-
-      // delete button click -> shows confirmation when delete button is clicked
-      $("button.deleteTask").on('click', () => {
-        if (confirm("Do you really want to delete?")){
-          // if user clicked yes
-          $.ajax({
-            url: `/tasks/${someTask.id}`,
-            type: 'POST'
-          }).then(() => {
-            console.log('Successfully delete the item!')
-            location.reload();
-          }).catch((err) => {
-            console.log(err);
-          })
-        }
-      });
     }
   };
 
