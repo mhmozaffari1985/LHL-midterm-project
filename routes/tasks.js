@@ -28,6 +28,16 @@ module.exports = (db) => {
       });
   });
 
+  // GET/tasks/ redirects to GET/
+  router.get("/", (req,res) => {
+    res.redirect("/");
+  })
+
+  // GET/tasks/categories
+  router.get("/categories", (req,res) => {
+    res.render("categoryView");
+  })
+
   return router;
 
 };
