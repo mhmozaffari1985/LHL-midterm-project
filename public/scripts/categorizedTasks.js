@@ -15,7 +15,7 @@ $(document).ready(function() {
     // Task Header Tags
     const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
     const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-    const $deleteTask = $('<button class="deleteTask btn btn-danger">').text('Delete Task'); // Set delete button tag
+    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteItem(${data.id})">`).text('Delete Task'); // Set delete button tag
 
     // Append Header Tags
     $taskHeader.append($taskTitle).append($deleteTask);
@@ -31,64 +31,42 @@ $(document).ready(function() {
     $editButtons.append($editButton).append($saveButton);
     $taskBody.append($taskDescription).append($editButtons);
 
-    // Task Footer
-    const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
-
-    const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
-
-    // For the real script, there should be a loop here for each category including the append step!
-    const $categories = $('<span class="categories">').text('Some Category');
-
-    $categoryContainer.append($categories);
-
-    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
-
-    // Append Footer tags
-    $taskFooter.append($categoryContainer);
-
     // Append $output
-    $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
+    $taskContent.append($taskHeader).append($taskBody);
     $output.append($checkbox).append($taskContent);
 
     return $output;
   };
 
+  // 2. Function to loop through example data set and render all tasks per category
+  const renderTasks = function(data) {
+    const categories = [1,2]; // Hard coded data until join table is available
+    $('#allTasks').html(''); // Clears default text
 
+    for (const category of categories) {
+      const $categoryList = $('<section class="categoryList">');
+      const $categoryName = $('<h2 class="categoryName">').text(category);
 
-  // // 2. Function to loop through example data set and render all tasks
-  // const renderTasks = function(data) {
-  //   $('#allTasks').html(''); // Clears default text
+      for (const someTask of data) { // loops through tasks
+        $task = createTaskElement(someTask); // calls createTaskElement for each task
+        $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
+      }
 
-  //   for (const someTask of data) { // loops through tasks
-  //     $task = createTaskElement(someTask); // calls createTaskElement for each task
-  //     $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      $categoryList.prepend($categoryName);
+      $('#allTasks').append($categoryList);
+    }
 
-  //     // delete button click -> shows confirmation when delete button is clicked
-  //     $("button.deleteTask").on('click', () => {
-  //       if (confirm("Do you really want to delete?")){
-  //         // if user clicked yes
-  //         $.ajax({
-  //           url: `/tasks/${someTask.id}`,
-  //           type: 'POST'
-  //         }).then(() => {
-  //           console.log('Successfully delete the item!')
-  //           location.reload();
-  //         }).catch((err) => {
-  //           console.log(err);
-  //         })
-  //       }
-  //     });
-  //   }
-  // };
+  };
 
-  // // 3. Create a function to do this directly from the database API
-  // const loadTasks = function() {
-  //   $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
-  //     renderTasks(data.tasks);
-  //   });
-  // };
+  // 3. Create a function to do this directly from the database API
+  const loadTasks = function() {
+    $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
+      renderTasks(data.tasks);
+    });
+  };
 
-  // // 4. Call load function
-  // loadTasks()
+  // 4. Call load function
+  loadTasks()
+
 
 });

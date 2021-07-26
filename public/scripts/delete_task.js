@@ -1,3 +1,4 @@
+// Called from the delete button onClick
 const deleteItem = (id) => {
   if (confirm("Do you really want to delete?")){
     // if user clicked yes
