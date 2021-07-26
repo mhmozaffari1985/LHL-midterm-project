@@ -115,4 +115,15 @@ $(document).ready(function() {
       // Call renderTasks
     }
 
+    // 4. Create a function that shows confirmation when delete button is clicked
+    $(".deleteTask").click(function(){
+      if (!confirm("Do you really want to delete?")){
+        // if user clicked no
+        console.log(false);
+      } else {
+        // if user clicked yes
+        console.log(true);
+      }
+    });
+
 });
