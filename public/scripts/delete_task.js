@@ -1,5 +1,5 @@
-// Called from the delete button onClick
-const deleteItem = (id) => {
+// Created function to delete the task
+const deleteTask = (id) => {
   if (confirm("Do you really want to delete?")){
     // if user clicked yes
     $.ajax({
