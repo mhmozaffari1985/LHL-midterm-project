@@ -7,7 +7,7 @@ $(document).ready(function() {
     const $output = $('<article class="tasks">'); // Output is a tasks class article
 
     // Checkbox
-    const $checkbox = $('<button class="checkbox"></button>');
+    const $checkbox = $(`<button class="checkbox" onClick="checkTask(this, ${data.id})"></button>`);
 
     // Task Content Container
     const $taskContent = $('<div class="taskContent">');
@@ -15,7 +15,7 @@ $(document).ready(function() {
     // Task Header Tags
     const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
     const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteItem(${data.id})">`).text('Delete Task'); // Set delete button tag
+    const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('Delete Task'); // Set delete button tag
 
     // Append Header Tags
     $taskHeader.append($taskTitle).append($deleteTask);
@@ -31,8 +31,23 @@ $(document).ready(function() {
     $editButtons.append($editButton).append($saveButton);
     $taskBody.append($taskDescription).append($editButtons);
 
+    // Task Footer
+    const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
+
+    const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
+
+    // For the real script, there should be a loop here for each category including the append step!
+    const $categories = $('<span class="categories">').text('Some Category');
+
+    $categoryContainer.append($categories);
+
+    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+
+    // Append Footer tags
+    $taskFooter.append($categoryContainer);
+
     // Append $output
-    $taskContent.append($taskHeader).append($taskBody);
+    $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
     $output.append($checkbox).append($taskContent);
 
     return $output;
@@ -48,8 +63,10 @@ $(document).ready(function() {
       const $categoryName = $('<h2 class="categoryName">').text(category);
 
       for (const someTask of data) { // loops through tasks
-        $task = createTaskElement(someTask); // calls createTaskElement for each task
-        $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
+        if(someTask.status_id === 1) {
+          $task = createTaskElement(someTask); // calls createTaskElement for each task
+          $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
+        }
       }
 
       $categoryList.prepend($categoryName);
