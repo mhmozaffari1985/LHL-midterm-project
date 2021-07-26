@@ -9,6 +9,7 @@ const params = {
 
 omdbApi.search(params, function(err, data) {
 
+  console.log(data);
   if (!err) {
     for (const movie of data.Search){
       console.log(movie.Title);
@@ -18,3 +19,7 @@ omdbApi.search(params, function(err, data) {
   }
 
 });
+
+const isMovie = function (taskTitle, taskDescription) {
+
+}

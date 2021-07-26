@@ -33,12 +33,8 @@ const isBook = function (taskTitle, taskDesc) {
 
 }
 
-// Example Data
-const exampleTitle = 'The Da Vinci Code';
-const exampleString = 'Read this book';
-
 // Example Runs
-isBook(exampleTitle,exampleString);
+isBook('The Da Vinci Code','Read this book');
 isBook('askdjhasdkjhasd', 'asdkjhasdkjhasd');
 isBook('Lord of the rings', 'asjkdhasdkj');
-isBook('12 Angry men', 'asdkljhasdasds');
+console.log(isBook('12 Angry men', 'asdkljhasdasds'));
