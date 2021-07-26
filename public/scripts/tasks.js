@@ -23,15 +23,9 @@ $(document).ready(function() {
     // Task Body Tags
     const $taskBody = $('<div class="taskBody">'); // Set div with task body class
     const $taskDescription = $('<p class="taskDescription">').text(data.task_description); // Set p with taskDescription class
-<<<<<<< HEAD
     const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
     const $editButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-edit"></i>Edit'); // Edit button
     const $saveButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-save"></i>Save'); // Save button
-=======
-    const $editButtons = $('<div class="editButtons">'); // Set div with editButtons class
-    const $editButton = $('<button>').text('Edit'); // Edit button
-    const $saveButton = $('<button>').text('Save'); // Save button
->>>>>>> 221285019523f233674102400a17f361cc535e50
 
     // Append Body Tags
     $editButtons.append($editButton).append($saveButton);
