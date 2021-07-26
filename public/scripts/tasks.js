@@ -2,16 +2,6 @@
 
 $(document).ready(function() {
 
-  // Single Task
-  const task =  {
-    id: 1,
-    task_title: "Inception",
-    task_description: "Very nice movie to watch",
-    deleted: false,
-    user_id: 1,
-    status_id: 1
-  };
-
   // 1. Function to create a single task element
   const createTaskElement = function(data) {
     const $output = $('<article class="tasks">'); // Output is a tasks class article
@@ -33,7 +23,7 @@ $(document).ready(function() {
     // Task Body Tags
     const $taskBody = $('<div class="taskBody">'); // Set div with task body class
     const $taskDescription = $('<p class="taskDescription">').text(data.task_description); // Set p with taskDescription class
-    const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
+    const $editButtons = $('<div class="editButtons">'); // Set div with editButtons class
     const $editButton = $('<button>').text('Edit'); // Edit button
     const $saveButton = $('<button>').text('Save'); // Save button
 
@@ -44,12 +34,12 @@ $(document).ready(function() {
     // Task Footer
     const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
 
-    const $categoryContainer = $('<div class="categoryContainer">') // Set div with class categoryContainer
+    const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
     const $categories = $('<p class="categories">').text('Some Category');
 
-    $categoryContainer.append($categories)
+    $categoryContainer.append($categories);
 
     const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
 
@@ -63,56 +53,24 @@ $(document).ready(function() {
     return $output;
   };
 
-  // All tasks
-  const tasks = [
-    {
-    id: 1,
-    task_title: "Inception",
-    task_description: "Very nice movie to watch",
-    deleted: false,
-    user_id: 1,
-    status_id: 1
-    },
-    {
-    id: 2,
-    task_title: "The Butcher Chef",
-    task_description: "Yummy",
-    deleted: false,
-    user_id: 1,
-    status_id: 2
-    },
-    {
-    id: 3,
-    task_title: "Mistborn",
-    task_description: "Good book",
-    deleted: false,
-    user_id: 2,
-    status_id: 2
-    },
-    {
-    id: 4,
-    task_title: "Play Station 5",
-    task_description: "for having fantastic time",
-    deleted: false,
-    user_id: 2,
-    status_id: 1
-    }];
+  // 2. Function to loop through example data set and render all tasks
+  const renderTasks = function(data) {
+    $('#allTasks').html(''); // Clears default text
 
-    // 2. Function to loop through example data set and render all tasks
-    const renderTasks = function (data) {
-      $('#allTasks').html(''); // Clears default text
-      for (const someTask of data) { // loops through tasks
-        $task = createTaskElement(someTask); // calls createTaskElement for each task
-        $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
-      }
+    for (const someTask of data) { // loops through tasks
+      $task = createTaskElement(someTask); // calls createTaskElement for each task
+      $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
     }
+  };
 
-    renderTasks(tasks);
+  // 3. Create a function to do this directly from the database API
+  const loadTasks = function() {
+    $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
+      renderTasks(data.tasks);
+    });
+  };
 
-    // 3. Create a function to do this directly from the database.
-    const loadTasks = function (data) {
-      // Load data from database or API
-      // Call renderTasks
-    }
+  // 4. Call load function
+  loadTasks();
 
 });

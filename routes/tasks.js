@@ -13,7 +13,7 @@ module.exports = (db) => {
       INSERT INTO tasks (task_title, task_description, user_id, status_id)
       VALUES ($1, $2, $3, $4)
       RETURNING *;
-    `
+    `;
     let queryParams = [req.body.task_title, req.body.task_desc, 1, 1];
     console.log(queryString, queryParams);
 
@@ -31,12 +31,12 @@ module.exports = (db) => {
   // GET/tasks/ redirects to GET/
   router.get("/", (req,res) => {
     res.redirect("/");
-  })
+  });
 
   // GET/tasks/categories
   router.get("/categories", (req,res) => {
     res.render("categoryView");
-  })
+  });
 
   return router;
 
