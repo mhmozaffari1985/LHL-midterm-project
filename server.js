@@ -39,7 +39,7 @@ const appDataApiRoutes = require("./routes/appDataApis");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", appDataApiRoutes(db));
+app.use("/api", appDataApiRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
