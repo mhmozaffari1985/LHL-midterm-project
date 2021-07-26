@@ -62,13 +62,6 @@ $(document).ready(function() {
     for (const someTask of data) { // loops through tasks
       $task = createTaskElement(someTask); // calls createTaskElement for each task
       $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
-    }
-  };
-
-  // 3. Create a function to do this directly from the database API
-  const loadTasks = function() {
-    $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
-      renderTasks(data.tasks);
 
       // delete button click -> shows confirmation when delete button is clicked
       $("button.deleteTask").on('click', () => {
@@ -80,6 +73,13 @@ $(document).ready(function() {
           console.log(true);
         }
       });
+    }
+  };
+
+  // 3. Create a function to do this directly from the database API
+  const loadTasks = function() {
+    $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
+      renderTasks(data.tasks);
     });
   };
 
