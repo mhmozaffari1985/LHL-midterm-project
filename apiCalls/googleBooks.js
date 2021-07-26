@@ -2,9 +2,9 @@
 const books = require('google-books-search');
 
 // Function to categorize based on google books API. Maybe need to change to promise?
-const isBook = function (bookTitle, bookDesc) {
-  bookTitle = bookTitle.toLowerCase().trim();
-  bookDesc = bookDesc.toLowerCase().trim();
+const isBook = function (taskTitle, taskDesc) {
+  taskTitle = taskTitle.toLowerCase().trim();
+  taskDesc = taskDesc.toLowerCase().trim();
 
   // Default options
   const options = {
@@ -14,19 +14,19 @@ const isBook = function (bookTitle, bookDesc) {
   };
 
   // Search for books
-  books.search(bookTitle, options, function(error, results) { // Results returns an array
+  books.search(taskTitle, options, function(error, results) { // Results returns an array
     if ( ! error ) {
       for (const book of results) {
         let libBookTitle = book.title.toLowerCase();
-        if (libBookTitle === bookTitle) {
-          console.log ('Book found:', libBookTitle);
+        if (libBookTitle === taskTitle) {
+          console.log (`Book found: ${libBookTitle}`);
           return true;
         }
       }
-      console.log ('No exact match.')
+      console.log (`No exact match for '${taskTitle}'.`)
       return false;
     } else {
-      console.log('No book.');
+      console.log('No book found by that name.');
       return false;
     }
   });

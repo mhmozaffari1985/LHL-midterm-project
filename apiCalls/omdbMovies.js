@@ -1,8 +1,20 @@
 // Require the npm package for omdb-client
 const omdbApi = require('omdb-client');
-const key = process.env.OMDB_API_KEY;
-console.log(key);
+
+
+const params = {
+    apiKey: '17b20cf',
+    query: 'Harry Potter'
+}
 
 omdbApi.search(params, function(err, data) {
-  // process response...
+
+  if (!err) {
+    for (const movie of data.Search){
+      console.log(movie.Title);
+    }
+  } else {
+    console.log(err);
+  }
+
 });
