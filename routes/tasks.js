@@ -18,7 +18,7 @@ module.exports = (db) => {
     // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
-      .then(data => {
+      .then(() => {
         res.redirect('/');
       })
       .catch(err => {
@@ -40,7 +40,7 @@ module.exports = (db) => {
     // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
-      .then(data => {
+      .then(() => {
         res.redirect('/');
       })
       .catch(err => {
@@ -61,8 +61,30 @@ module.exports = (db) => {
     let queryParams = [req.params.id];
     
     db.query(queryString, queryParams)
-      .then(data => {
-        res.redirect('/');
+      .then(() => {
+        res.json({ success: true});
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+  });
+
+  // POST tasks/update/:id route (edit task description):
+  router.post("/update/:id", (req, res) => {
+    let queryString = `
+      UPDATE tasks
+      SET task_description = $1
+      WHERE id = $2
+      RETURNING *;
+    `
+    let queryParams = [req.body.task_description, req.params.id];
+
+    console.log(queryString, queryParams);
+    db.query(queryString, queryParams)
+      .then(() => {
+        res.json({ success: true });
       })
       .catch(err => {
         res

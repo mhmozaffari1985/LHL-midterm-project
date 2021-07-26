@@ -24,8 +24,9 @@ $(document).ready(function() {
     const $taskBody = $('<div class="taskBody">'); // Set div with task body class
     const $taskDescription = $('<p class="taskDescription">').text(data.task_description); // Set p with taskDescription class
     const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
-    const $editButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-edit"></i>Edit'); // Edit button
-    const $saveButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-save"></i>Save'); // Save button
+    const $editButton = $(`<button class="btn btn-outline-secondary" onClick="editTask(this)">`).html('<i class="far fa-edit"></i>Edit'); // Edit button
+    const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${data.id})">`).html('<i class="far fa-save"></i>Save'); // Save button
+    const $editTextarea = $('<textarea class="editTextarea"></textarea>');
 
     // Append Body Tags
     $editButtons.append($editButton).append($saveButton);
@@ -50,7 +51,7 @@ $(document).ready(function() {
     $taskFooter.append($categoryContainer);
 
     // Append $output
-    $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
+    $taskContent.append($taskHeader).append($taskBody).append($editTextarea).append($taskFooter);
     $output.append($checkbox).append($taskContent);
 
     return $output;
