@@ -45,10 +45,13 @@ body {
       display: flex;
       flex-direction: row;
       width: 95%;
-      border-style: solid;
+      border: 2px solid grey;
+      border-radius: 10px;
       align-self: center;
       padding: 1em;
       margin: 1em;
+      max-width: 800px;
+      min-width: 600px;
 
       .checkbox{
         display: flex;
@@ -74,6 +77,7 @@ body {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+          margin-bottom: 1em;
 
           .taskTitle {
             font-size: xx-large;
@@ -90,10 +94,10 @@ body {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          border-bottom: solid black;
+          border-bottom: solid rgb(87, 87, 87);
           margin-top: 0.5em;
-          margin-bottom: 0.5em;
-          padding-bottom: 0.2em;
+          margin-bottom: 1.5em;
+          padding-bottom: 1em;
 
           .taskDescription {
             display: flex;
@@ -105,10 +109,16 @@ body {
           .editButtons {
             display:flex;
             flex-direction: row;
+            flex-basis: 15%;
+            justify-content: space-evenly;
+            align-items: center;
 
             button {
               display: flex;
-              align-self: center;
+              align-items: center;
+              width: 4em;
+              height: 1.5em;
+              border: none;
             }
           }
         }
@@ -126,8 +136,11 @@ body {
             .categories {
               display: flex;
               margin-right: 1em;
-              padding: 0.1em;
-              border-style: solid;
+              padding: 0.2em;
+              border-radius: 10px;
+              border: 2px solid rgb(119, 121, 255);
+              background-color: rgb(119, 121, 255);
+              color: white;
             }
           }
 

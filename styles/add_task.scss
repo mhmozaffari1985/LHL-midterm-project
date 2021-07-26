@@ -4,6 +4,8 @@
   flex-direction: column;
   // align-self: center;
   margin: 1em;
+  max-width: 800px;
+  min-width: 600px;
 
   .new-task-content {
     display: flex;
