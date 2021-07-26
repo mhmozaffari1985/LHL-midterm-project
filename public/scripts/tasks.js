@@ -12,6 +12,7 @@ $(document).ready(function() {
     status_id: 1
   };
 
+  // 1. Function to create a single task element
   const createTaskElement = function(data) {
     const $output = $('<article class="tasks">'); // Output is a tasks class article
 
@@ -97,9 +98,21 @@ $(document).ready(function() {
     status_id: 1
     }];
 
+    // 2. Function to loop through example data set and render all tasks
     const renderTasks = function (data) {
-
+      $('#allTasks').html(''); // Clears default text
+      for (const someTask of data) { // loops through tasks
+        $task = createTaskElement(someTask); // calls createTaskElement for each task
+        $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      }
     }
 
+    renderTasks(tasks);
+
+    // 3. Create a function to do this directly from the database.
+    const loadTasks = function (data) {
+      // Load data from database or API
+      // Call renderTasks
+    }
 
 });
