@@ -65,12 +65,17 @@ $(document).ready(function() {
 
       // delete button click -> shows confirmation when delete button is clicked
       $("button.deleteTask").on('click', () => {
-        if (!confirm("Do you really want to delete?")){
-          // if user clicked no
-          console.log(false);
-        } else {
+        if (confirm("Do you really want to delete?")){
           // if user clicked yes
-          console.log(true);
+          $.ajax({
+            url: `/tasks/${someTask.id}`,
+            type: 'POST'
+          }).then(() => {
+            console.log('Successfully delete the item!')
+            location.reload();
+          }).catch((err) => {
+            console.log(err);
+          })
         }
       });
     }
