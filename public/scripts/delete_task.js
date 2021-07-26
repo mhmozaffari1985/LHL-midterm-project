@@ -1,6 +1,4 @@
 const deleteItem = (id) => {
-  console.log(id);
-
   if (confirm("Do you really want to delete?")){
     // if user clicked yes
     $.ajax({
