@@ -69,21 +69,50 @@ body {
         margin-bottom: 0px;
       }
 
+      // Task Header
       .taskHeader {
         display: flex;
         color: brown;
         font: x-large;
         flex-direction: row;
+        justify-content: space-between;
       }
 
-      .taskDescription {
+      // Task Body
+      .taskBody {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         color: crimson;
+        border-bottom: solid black;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+
       }
 
+      // Task Footer
       .taskFooter {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         color: darkblue;
+
+        .categoryContainer {
+          display:flex;
+
+          .categories {
+            display: flex;
+            margin-right: 1em;
+            padding: 0.1em;
+            border-style: solid;
+          }
+        }
+
+        .addCategory {
+          display: flex;
+          align-self: center;
+        }
+
       }
     }
 
