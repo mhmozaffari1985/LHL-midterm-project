@@ -58,9 +58,24 @@ body {
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        align-self: center;
+        // align-self: center;
+        margin-top: 0.5em;
         margin-right: 1em;
         border: 2px solid grey;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .checkbox:hover {
+        position: relative;
+        background-color: rgb(218, 218, 218);
+      }
+
+      .checkbox:hover::before {
+        content: "X";
+        font-size: 1.3em;
+        color: grey;
+        position: absolute;
+        top: -2px;
       }
 
       // Task Header
