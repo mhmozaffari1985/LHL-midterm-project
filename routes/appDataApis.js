@@ -1,5 +1,5 @@
 /*
- * All routes for tasks are defined here
+ * All routes for database query generated APIs are here.
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -7,19 +7,15 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  // POST/tasks/add route:
-  router.post("/add", (req, res) => {
-    let queryString = `
-      INSERT INTO tasks (task_title, task_description, user_id, status_id)
-      VALUES ($1, $2, $3, $4)
-      RETURNING *;
-    `
-    let queryParams = [req.body.task_title, req.body.task_desc, 1, 1];
-    console.log(queryString, queryParams);
 
-    db.query(queryString, queryParams)
+  // GET/apis/tasks
+  router.get("/", (req, res) => {
+    let query = `SELECT * FROM tasks;`;
+    console.log(query);
+    db.query(query)
       .then(data => {
-        res.redirect('/');
+        const tasks = data.rows;
+        res.json({ tasks });
       })
       .catch(err => {
         res
@@ -28,6 +24,7 @@ module.exports = (db) => {
       });
   });
 
+  // GET/apis/users
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -42,5 +39,4 @@ module.exports = (db) => {
   });
 
   return router;
-
 };
