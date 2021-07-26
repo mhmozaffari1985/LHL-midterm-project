@@ -70,7 +70,7 @@ $(document).ready(function() {
     $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
       renderTasks(data.tasks);
 
-      // Create a function that shows confirmation when delete button is clicked
+      // delete button click -> shows confirmation when delete button is clicked
       $("button.deleteTask").on('click', () => {
         if (!confirm("Do you really want to delete?")){
           // if user clicked no
