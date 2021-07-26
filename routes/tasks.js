@@ -15,7 +15,7 @@ module.exports = (db) => {
       RETURNING *;
     `;
     let queryParams = [req.body.task_title, req.body.task_desc, 1, 1];
-    console.log(queryString, queryParams);
+    // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
       .then(data => {
@@ -27,6 +27,28 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  // POST/tasks/:id route(DELETE):
+  router.post("/:id", (req, res) => {
+    console.log(req.params.id);
+    let queryString = `
+      DELETE FROM tasks
+      WHERE id = $1
+      RETURNING *;
+    `;
+    let queryParams = [req.params.id];
+    // console.log(queryString, queryParams);
+
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.redirect('/');
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+  })
 
   // GET/tasks/ redirects to GET/
   router.get("/", (req,res) => {
