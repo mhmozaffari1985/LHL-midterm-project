@@ -20,19 +20,37 @@
 
     <main id='mainContainer'>
     <!-- INPUT FORM WITH TWO FIELDS TIED TO ONE BUTTON-->
+    <form id='addTask' action="/tasks/add" method="POST">
+
+      <label for="addTitle"></label>
+      <input type="text" id="addTitle" name="addTitle" placeholder='Title'><br><br>
+
+      <label for="addDesc"></label>
+      <input type="text" id="addDesc" name="addDesc" placeholder='Task Description'><br><br>
+
+      <button type="submit">Add Task</button>
+    </form>
 
     <!-- TASK CARDS (ARTICLES) -- HEADER, BODY, FOOTER -->
       <article class='tasks'>
         <header class='taskHeader'>
-          'Hello I am a task title'
+          <button class='checkbox'></button>
+          <p class='taskTitle'>'Hello I am a task title'</p>
+          <button class='deleteTask'> Delete Task </button>
         </header>
 
-        <p class='taskDescription'>
-          'I am a task description'
-        </p>
+        <div class='taskDescription'>
+          <p>'I am a task description'</p>
+          <button>Edit button</button>
+          <button>Save edit</button>
+        </div>
 
         <footer class='taskFooter'>
-          'I am a task footer'
+          <div class='categoryContainer'>
+            <p class='categories'>'I am a category'</p>
+            <p class='categories'>'I am another category'</p>
+          </div>
+          <button class='addCategory'>Add Category To Item</button>
         </footer>
 
       </article>

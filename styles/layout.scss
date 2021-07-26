@@ -37,7 +37,56 @@ body {
   // Main Container Styling
   #mainContainer {
     display: flex;
+    flex-direction: column;
     background-color: burlywood;
+
+    // Add Task Form Styling
+    #addTask {
+      display: flex;
+      flex-direction: column;
+      background-color: lightgreen;
+      width: 95%;
+      border-style: solid;
+      align-self: center;
+      padding: 1em;
+      margin: 1em;
+    }
+
+    // All Task Articles
+    .tasks {
+      display: flex;
+      flex-direction: column;
+      background-color: cadetblue;
+      width: 95%;
+      border-style: solid;
+      align-self: center;
+      padding: 1em;
+      margin: 1em;
+
+      // This below p controls the margins for the taskHeader p and taskDescription p
+      p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+
+      .taskHeader {
+        display: flex;
+        color: brown;
+        font: x-large;
+        flex-direction: row;
+      }
+
+      .taskDescription {
+        display: flex;
+        color: crimson;
+      }
+
+      .taskFooter {
+        display: flex;
+        color: darkblue;
+      }
+    }
+
   }
 }
 
