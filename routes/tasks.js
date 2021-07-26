@@ -35,7 +35,6 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(data => {
-        const tasks = data.rows;
         res.redirect('/');
       })
       .catch(err => {
