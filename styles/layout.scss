@@ -3,6 +3,7 @@
 
 body {
   background-color: #EEE;
+  color:black;
   display: flex;
   flex-direction: column;
 
@@ -38,13 +39,11 @@ body {
   #mainContainer {
     display: flex;
     flex-direction: column;
-    background-color: burlywood;
 
     // Add Task Form Styling
     #addTask {
       display: flex;
       flex-direction: column;
-      background-color: lightgreen;
       width: 95%;
       border-style: solid;
       align-self: center;
@@ -55,64 +54,100 @@ body {
     // All Task Articles
     .tasks {
       display: flex;
-      flex-direction: column;
-      background-color: cadetblue;
+      flex-direction: row;
       width: 95%;
       border-style: solid;
       align-self: center;
       padding: 1em;
       margin: 1em;
 
-      // This below p controls the margins for the taskHeader p and taskDescription p
-      p {
-        margin-top: 0px;
-        margin-bottom: 0px;
+      .checkbox{
+        display: flex;
+        height: 20px;
+        width: 20px;
+        align-self: center;
+        margin-right: 1em;
       }
 
       // Task Header
-      .taskHeader {
+      .taskContent{
         display: flex;
-        color: brown;
-        font: x-large;
-        flex-direction: row;
-        justify-content: space-between;
-      }
+        flex-direction: column;
+        width: 100%;
 
-      // Task Body
-      .taskBody {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: crimson;
-        border-bottom: solid black;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
+        // This below p controls the margins for the taskHeader p and taskDescription p
+        p {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
 
-      }
+        .taskHeader {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
 
-      // Task Footer
-      .taskFooter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: darkblue;
+          .taskTitle {
+            font-size: xx-large;
+          }
 
-        .categoryContainer {
-          display:flex;
-
-          .categories {
+          .deleteTask {
             display: flex;
-            margin-right: 1em;
-            padding: 0.1em;
-            border-style: solid;
+            align-self: center;
           }
         }
 
-        .addCategory {
+        // Task Body
+        .taskBody {
           display: flex;
-          align-self: center;
+          flex-direction: row;
+          justify-content: space-between;
+          border-bottom: solid black;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+          padding-bottom: 0.2em;
+
+          .taskDescription {
+            display: flex;
+            height: auto;
+            word-break: break-word;
+            width: 85%;
+          }
+
+          .editButtons {
+            display:flex;
+            flex-direction: row;
+
+            button {
+              display: flex;
+              align-self: center;
+            }
+          }
         }
 
+        // Task Footer
+        .taskFooter {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .categoryContainer {
+            display:flex;
+            width: 85%;
+
+            .categories {
+              display: flex;
+              margin-right: 1em;
+              padding: 0.1em;
+              border-style: solid;
+            }
+          }
+
+          .addCategory {
+            display: flex;
+            align-self: center;
+          }
+
+        }
       }
     }
 

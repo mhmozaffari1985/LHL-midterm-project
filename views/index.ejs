@@ -33,29 +33,33 @@
 
     <!-- TASK CARDS (ARTICLES) -- HEADER, BODY, FOOTER -->
       <article class='tasks'>
-        <header class='taskHeader'>
-          <button class='checkbox'></button>
-          <p class='taskTitle'>'Hello I am a task title'</p>
-          <button class='deleteTask'> Delete Task </button>
-        </header>
 
-        <div class='taskBody'>
-          <p class='taskDescription'>'I am a task description'</p>
-          <div class='editButtons'>
-            <button>Edit button</button>
-            <button>Save edit</button>
+        <button class='checkbox'></button>
+
+        <div class='taskContent'>
+          <header class='taskHeader'>
+            <p class='taskTitle'>'Hello I am a task title'</p>
+            <button class='deleteTask'> Delete Task </button>
+          </header>
+
+          <div class='taskBody'>
+            <p class='taskDescription'>'I am a task description that is very long and goes multiple lines because the guy who wrote me can't stop typing and he's still not done but he hasn't even typed in a period yet what poor grammar.'</p>
+            <div class='editButtons'>
+              <button>Edit button</button>
+              <button>Save edit</button>
+            </div>
           </div>
+
+          <footer class='taskFooter'>
+
+            <div class='categoryContainer'>
+              <p class='categories'>'I am a category'</p>
+              <p class='categories'>'I am another category'</p>
+            </div>
+
+            <button class='addCategory'>Add Category To Item</button>
+          </footer>
         </div>
-
-        <footer class='taskFooter'>
-
-          <div class='categoryContainer'>
-            <p class='categories'>'I am a category'</p>
-            <p class='categories'>'I am another category'</p>
-          </div>
-
-          <button class='addCategory'>Add Category To Item</button>
-        </footer>
 
       </article>
     </main>
