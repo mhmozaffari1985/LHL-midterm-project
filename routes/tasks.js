@@ -81,6 +81,27 @@ module.exports = (db) => {
     res.render("categoryView");
   });
 
+  router.post("/categories/delete/:id/:categoryId", (req, res) => {
+    let queryString = `
+      DELETE FROM task_category      
+      WHERE task_id = $1
+      AND category_id = $2
+      RETURNING *;
+    `;
+    let queryParams = [req.params.id, req.params.categoryId];
+    console.log(queryString);
+    console.log(queryParams);
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.redirect('/');
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+  });
+
   return router;
 
 };

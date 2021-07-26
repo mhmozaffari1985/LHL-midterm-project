@@ -37,7 +37,10 @@ $(document).ready(function() {
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $categories = $('<span class="categories">').text('Some Category');
+    const $removeCategories = $('<span class="removeCategories">').text('❌');
+    $categoryContainer.append($removeCategories);
+
+    const $categories = $('<span class="categories">').text(data.category_name);
 
     $categoryContainer.append($categories);
 

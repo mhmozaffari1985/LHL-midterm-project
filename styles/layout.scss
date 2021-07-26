@@ -169,10 +169,19 @@ body {
               display: flex;
               margin-right: 1em;
               padding: 0.5em;
-              border-radius: 10px;
+              border-radius: 0px 10px 10px 0px;
               border: 2px solid rgb(119, 121, 255);
               background-color: rgb(119, 121, 255);
               color: white;
+            }
+            .removeCategories {
+              display: flex;
+              padding: 0.5em;
+              border-radius: 10px 0px 0px 10px;
+              border: 2px solid rgb(119, 121, 255);
+              background-color: rgb(119, 121, 255);
+              color: white;
+              font-weight: bold;
             }
           }
 
