@@ -53,6 +53,8 @@ $(document).ready(function() {
     return $output;
   };
 
+  
+
   // 2. Function to loop through example data set and render all tasks
   const renderTasks = function(data) {
     $('#allTasks').html(''); // Clears default text
@@ -67,21 +69,22 @@ $(document).ready(function() {
   const loadTasks = function() {
     $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
       renderTasks(data.tasks);
+
+      // Create a function that shows confirmation when delete button is clicked
+      $("button.deleteTask").on('click', () => {
+        if (!confirm("Do you really want to delete?")){
+          // if user clicked no
+          console.log(false);
+        } else {
+          // if user clicked yes
+          console.log(true);
+        }
+      });
     });
   };
 
   // 4. Call load function
-  loadTasks();
+  loadTasks()
 
-    // 4. Create a function that shows confirmation when delete button is clicked
-    $(".deleteTask").click(function(){
-      if (!confirm("Do you really want to delete?")){
-        // if user clicked no
-        console.log(false);
-      } else {
-        // if user clicked yes
-        console.log(true);
-      }
-    });
-
+  
 });
