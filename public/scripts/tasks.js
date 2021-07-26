@@ -25,7 +25,7 @@ $(document).ready(function() {
     // Task Header Tags
     const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
     const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-    const $deleteTask = $('<button class="deleteTask">').text('Delete Task'); // Set delete button tag
+    const $deleteTask = $('<button class="deleteTask btn btn-danger">').text('Delete Task'); // Set delete button tag
 
     // Append Header Tags
     $taskHeader.append($taskTitle).append($deleteTask);
@@ -34,8 +34,8 @@ $(document).ready(function() {
     const $taskBody = $('<div class="taskBody">'); // Set div with task body class
     const $taskDescription = $('<p class="taskDescription">').text(data.task_description); // Set p with taskDescription class
     const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
-    const $editButton = $('<button>').text('Edit'); // Edit button
-    const $saveButton = $('<button>').text('Save'); // Save button
+    const $editButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-edit"></i>Edit'); // Edit button
+    const $saveButton = $('<button class="btn btn-outline-secondary">').html('<i class="far fa-save"></i>Save'); // Save button
 
     // Append Body Tags
     $editButtons.append($editButton).append($saveButton);
@@ -47,14 +47,14 @@ $(document).ready(function() {
     const $categoryContainer = $('<div class="categoryContainer">') // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $categories = $('<p class="categories">').text('Some Category');
+    const $categories = $('<span class="categories">').text('Some Category');
 
     $categoryContainer.append($categories)
 
-    const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
 
     // Append Footer tags
-    $taskFooter.append($categoryContainer).append($addCategory);
+    $taskFooter.append($categoryContainer);
 
     // Append $output
     $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
