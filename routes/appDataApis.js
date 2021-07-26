@@ -10,7 +10,13 @@ module.exports = (db) => {
 
   // GET/apis/tasks
   router.get("/tasks", (req, res) => {
-    let query = `SELECT * FROM tasks;`;
+    let query = `SELECT tasks.*, users.name AS user_name, users.email, statuses.name AS status_name, 
+    categories.id  AS category_id, categories.name AS category_name
+    FROM tasks
+    JOIN task_category ON tasks.id = task_category.task_id 
+    JOIN categories ON task_category.category_id  = categories.id 
+    JOIN statuses ON statuses.id  = tasks.status_id 
+    JOIN users ON tasks.user_id = users.id`;
     console.log(query);
     db.query(query)
       .then(data => {
