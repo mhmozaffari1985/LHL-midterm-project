@@ -1,9 +1,148 @@
 // See: https://sass-lang.com/
 
+
 body {
   background-color: #EEE;
+  color:black;
+  display: flex;
+  flex-direction: column;
 
-  h1 {
-    color: #244751;
+  // Header Styling
+  header {
+    #navbar {
+      display: flex;
+      width: 100%;
+      background-color: pink;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        padding-left: 2em;
+      }
+
+      #userAuthentication {
+        display: flex;
+        flex-direction: row;
+        padding-right: 2em;
+
+        div {
+          display: flex;
+          flex-direction: row;
+        }
+
+      }
+    }
+  }
+
+  // Main Container Styling
+  #mainContainer {
+    display: flex;
+    flex-direction: column;
+
+    // All Task Articles
+    .tasks {
+      display: flex;
+      flex-direction: row;
+      width: 95%;
+      border-style: solid;
+      align-self: center;
+      padding: 1em;
+      margin: 1em;
+
+      .checkbox{
+        display: flex;
+        height: 20px;
+        width: 20px;
+        align-self: center;
+        margin-right: 1em;
+      }
+
+      // Task Header
+      .taskContent{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        // This below p controls the margins for the taskHeader p and taskDescription p
+        p {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+
+        .taskHeader {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .taskTitle {
+            font-size: xx-large;
+          }
+
+          .deleteTask {
+            display: flex;
+            align-self: center;
+          }
+        }
+
+        // Task Body
+        .taskBody {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          border-bottom: solid black;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+          padding-bottom: 0.2em;
+
+          .taskDescription {
+            display: flex;
+            height: auto;
+            word-break: break-word;
+            width: 85%;
+          }
+
+          .editButtons {
+            display:flex;
+            flex-direction: row;
+
+            button {
+              display: flex;
+              align-self: center;
+            }
+          }
+        }
+
+        // Task Footer
+        .taskFooter {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .categoryContainer {
+            display:flex;
+            width: 85%;
+
+            .categories {
+              display: flex;
+              margin-right: 1em;
+              padding: 0.1em;
+              border-style: solid;
+            }
+          }
+
+          .addCategory {
+            display: flex;
+            align-self: center;
+          }
+
+        }
+      }
+    }
+
   }
 }
+
+
+
+
