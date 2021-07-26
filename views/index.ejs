@@ -2,8 +2,18 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
+    
+    <!-- External CSS - Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- External CSS - Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/add_task.css" type="text/css" />
+
 
     <!-- <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script> -->
 
@@ -16,8 +26,12 @@
 
   <body>
 
+    
     <!-- HEADER -->
     <%- include('partials/_header'); %>
+
+    <!-- Adding task form -->
+    <%- include('partials/_add_task') %>
 
     <main id='mainContainer'>
     <!-- INPUT FORM WITH TWO FIELDS TIED TO ONE BUTTON-->

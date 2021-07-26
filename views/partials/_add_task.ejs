@@ -1,0 +1,14 @@
+<article class="new-task-container">
+  <h2>Add your task</h2>
+  <form action="/api/tasks/add" method="POST" class="new-task-content">
+    <div class="new-task-textarea">
+      <label for="task_title"></label>
+      <input name="task_title" class="form-control" type="text" placeholder="Title">
+      <label for="task_desc"></label>
+      <textarea name="task_desc" class="form-control" placeholder="Task description" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="new-task-button">
+      <button><i class="fas fa-plus-circle"></i>Add Task</button>
+    </div>
+  </form>
+</article>

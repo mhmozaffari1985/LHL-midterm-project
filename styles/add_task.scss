@@ -1,0 +1,44 @@
+.new-task-container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  // align-self: center;
+  margin: 1em;
+
+  .new-task-content {
+    display: flex;
+    align-items: center;
+
+    .new-task-textarea {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      
+      input {
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        height: 100px;
+      }
+    }
+    
+    .new-task-button {
+      // flex-grow: 1;
+      display: flex;
+
+      button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        color: green;
+
+        i {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+}
