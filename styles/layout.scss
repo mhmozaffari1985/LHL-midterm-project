@@ -40,24 +40,6 @@ body {
     display: flex;
     flex-direction: column;
 
-    // Add Task Form Styling
-    #addTask {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 95%;
-      border-style: solid;
-      align-self: center;
-      padding: 1em;
-      margin: 1em;
-
-      div {
-        display: flex;
-        flex-direction: column;
-        width: 85%;
-      }
-    }
-
     // All Task Articles
     .tasks {
       display: flex;
