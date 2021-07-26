@@ -37,7 +37,7 @@ $(document).ready(function() {
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $categories = $('<span class="categories">').text('Some Category');
+    const $categories = $('<span class="categories">').text(data.category_name);
 
     $categoryContainer.append($categories);
 
@@ -69,7 +69,8 @@ $(document).ready(function() {
 
   // 3. Create a function to do this directly from the database API
   const loadTasks = function() {
-    $.getJSON('/api/tasks', function(data) { // jQuery shorthand for Ajax
+    $.getJSON('/api/tasks', function(data) { 
+      // jQuery shorthand for Ajax
       renderTasks(data.tasks);
     });
   };
