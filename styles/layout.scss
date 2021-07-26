@@ -55,10 +55,12 @@ body {
 
       .checkbox{
         display: flex;
-        height: 20px;
-        width: 20px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
         align-self: center;
         margin-right: 1em;
+        border: 2px solid grey;
       }
 
       // Task Header
@@ -104,6 +106,7 @@ body {
             height: auto;
             word-break: break-word;
             width: 85%;
+            margin-right: 1em;
           }
 
           .editButtons {
@@ -119,6 +122,7 @@ body {
               width: 4em;
               height: 1.5em;
               border: none;
+              margin-right: 0.5em;
             }
           }
         }
@@ -136,7 +140,7 @@ body {
             .categories {
               display: flex;
               margin-right: 1em;
-              padding: 0.2em;
+              padding: 0.5em;
               border-radius: 10px;
               border: 2px solid rgb(119, 121, 255);
               background-color: rgb(119, 121, 255);
