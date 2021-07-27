@@ -1,6 +1,6 @@
-INSERT INTO categories (name) VALUES ('Film');
-INSERT INTO categories (name) VALUES ('Series');
-INSERT INTO categories (name) VALUES ('Resturants');
-INSERT INTO categories (name) VALUES ('Cafes');
+INSERT INTO categories (name) VALUES ('Films');
+INSERT INTO categories (name) VALUES ('TV Series');
+INSERT INTO categories (name) VALUES ('Restaurants and Cafes');
 INSERT INTO categories (name) VALUES ('Books');
-INSERT INTO categories (name) VALUES ('Products');
+INSERT INTO categories (name) VALUES ('Shopping');
+INSERT INTO categories (name) VALUES ('Other');
