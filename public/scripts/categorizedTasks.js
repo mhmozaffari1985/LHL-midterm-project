@@ -40,7 +40,6 @@ $(document).ready(function() {
 
   // 2. Function to loop through example data set and render all tasks per category
   const renderTasks = function(data) {
-    console.log(data);
 
     const categories = [];
     // Populate categories
