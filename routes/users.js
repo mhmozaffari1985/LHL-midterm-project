@@ -12,7 +12,12 @@ const bcrypt  = require('bcrypt');
 module.exports = (db) => {
   // GET /users/login -> render login page
   router.get('/login', (req, res) => {
-    res.render('login');
+    if (req.session.userID) {
+      console.log(req.session.userID)
+      res.redirect('/');
+    } else {
+      res.render('login');
+    }
   });
 
   // POST /users/login -> create logged in user cookie
@@ -27,11 +32,11 @@ module.exports = (db) => {
     `
     let queryParams = [email, password];
 
-    console.log(queryString, queryParams)
+    // console.log(queryString, queryParams);
     db.query(queryString, queryParams)
       .then((data) => {
         if (data.rows.length) {
-          req.session.userID = data.rows.id;
+          req.session.userID = data.rows[0].id;
           res.redirect('/');
         } else {
           res.send('<script>alert("Your credential is not valid!"); window.location.href = "/users/login";</script>')
