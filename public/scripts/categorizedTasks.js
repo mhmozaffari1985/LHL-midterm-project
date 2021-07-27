@@ -58,15 +58,24 @@ $(document).ready(function() {
 
   // 2. Function to loop through example data set and render all tasks per category
   const renderTasks = function(data) {
-    const categories = [1,2]; // Hard coded data until join table is available
+    console.log(data);
+
+    const categories = [];
+    // Populate categories
+    for (const task of data) {
+      categories.push(task.category_name)
+    }
+
     $('#allTasks').html(''); // Clears default text
 
+    // Loops through categories
     for (const category of categories) {
       const $categoryList = $('<section class="categoryList">');
       const $categoryName = $('<h2 class="categoryName">').text(category);
 
-      for (const someTask of data) { // loops through tasks
-        if(someTask.status_id === 1) {
+      // Loops through tasks
+      for (const someTask of data) {
+        if(someTask.status_id === 1 && someTask.category_name === category) {
           $task = createTaskElement(someTask); // calls createTaskElement for each task
           $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
         }

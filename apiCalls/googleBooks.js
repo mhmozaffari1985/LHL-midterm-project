@@ -37,4 +37,4 @@ const isBook = function (taskTitle, taskDesc) {
 isBook('The Da Vinci Code','Read this book');
 isBook('askdjhasdkjhasd', 'asdkjhasdkjhasd');
 isBook('Lord of the rings', 'asjkdhasdkj');
-console.log(isBook('12 Angry men', 'asdkljhasdasds'));
+(isBook('12 Angry men', 'asdkljhasdasds'));
