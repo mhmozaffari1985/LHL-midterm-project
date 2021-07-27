@@ -14,27 +14,33 @@ const isBook = function (taskTitle, taskDesc) {
   };
 
   // Search for books
-  books.search(taskTitle, options, function(error, results) { // Results returns an array
-    if ( ! error ) {
-      for (const book of results) {
-        let libBookTitle = book.title.toLowerCase();
-        if (libBookTitle === taskTitle) {
-          console.log (`Book found: ${libBookTitle}`);
-          return true;
-        }
-      }
-      console.log (`No exact match for '${taskTitle}'.`)
-      return false;
-    } else {
-      console.log('No book found by that name.');
-      return false;
-    }
-  });
 
+  return new Promise ((resolve,reject) => {
+
+    books.search(taskTitle, options, function(error, results) { // Results returns an array
+      if ( ! error ) {
+        for (const book of results) {
+          let libBookTitle = book.title.toLowerCase();
+          if (libBookTitle === taskTitle) {
+            console.log (`Book found: ${libBookTitle}`);
+            return resolve(true);
+          }
+        }
+        console.log (`No exact match for '${taskTitle}'.`)
+        return resolve(false);
+      } else {
+        console.log(`No book found by that name: ${taskTitle}`);
+        return resolve(false);
+      }
+    });
+
+  })
 }
 
 // Example Runs
-isBook('The Da Vinci Code','Read this book');
-isBook('askdjhasdkjhasd', 'asdkjhasdkjhasd');
-isBook('Lord of the rings', 'asjkdhasdkj');
-(isBook('12 Angry men', 'asdkljhasdasds'));
+// isBook('The Da Vinci Code','Read this book').then(res => console.log(res));
+// isBook('askdjhasdkjhasd', 'asdkjhasdkjhasd');
+// isBook('Lord of the rings', 'asjkdhasdkj');
+// (isBook('12 Angry men', 'asdkljhasdasds'));
+
+module.exports = {isBook};
