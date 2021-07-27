@@ -34,20 +34,25 @@ const createTaskElement = function(data) {
   // Task Footer
   const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
 
-  const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
+  // Only has tags if categories exist (this also handles removal for deletion)
+  if(data.category_name) {
 
-  // For the real script, there should be a loop here for each category including the append step!
-  const $removeCategories = $(`<button class="removeCategories" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text('❌');
-  $categoryContainer.append($removeCategories);
+    const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
-  const $categories = $('<span class="categories">').text(data.category_name);
+    // For the real script, there should be a loop here for each category including the append step!
+    const $removeCategories = $(`<button class="removeCategories" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text('❌');
+    $categoryContainer.append($removeCategories);
 
-  $categoryContainer.append($categories);
+    const $categories = $('<span class="categories">').text(data.category_name);
 
-  // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+    $categoryContainer.append($categories);
 
-  // Append Footer tags
-  $taskFooter.append($categoryContainer);
+    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+
+    // Append Footer tags
+    $taskFooter.append($categoryContainer);
+  }
+
 
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($editTextarea).append($taskFooter);
@@ -72,7 +77,7 @@ const renderTasks = function(data) {
 
 // 3. Create a function to do this directly from the database API
 const loadTasks = function() {
-  $.getJSON('/api/tasks', function(data) { 
+  $.getJSON('/api/tasks', function(data) {
     // jQuery shorthand for Ajax
     renderTasks(data.tasks);
   });
@@ -80,5 +85,5 @@ const loadTasks = function() {
 
 $(document).ready(function() {
   // 4. Call load function
-  loadTasks()  
+  loadTasks()
 });
