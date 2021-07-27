@@ -49,8 +49,8 @@ module.exports = (db) => {
   router.get("/categories", (req,res) => {
     db.query(`SELECT * FROM categories;`)
     .then(data => {
-      const categoryTasks = data.rows;
-      res.json({categoryTasks});
+      const categories = data.rows;
+      res.json({categories});
     })
     .catch(err => {
       res
