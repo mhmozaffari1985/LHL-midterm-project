@@ -44,7 +44,9 @@ $(document).ready(function() {
     const categories = [];
     // Populate categories
     for (const task of data) {
-      categories.push(task.category_name)
+      if(!categories.includes(task.category_name)){
+        categories.push(task.category_name)
+      }
     }
 
     $('#allTasks').html(''); // Clears default text
