@@ -31,26 +31,8 @@ $(document).ready(function() {
     $editButtons.append($editButton).append($saveButton);
     $taskBody.append($taskDescription).append($editButtons);
 
-    // Task Footer
-    const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
-
-    const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
-
-    // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $('<span class="removeCategories">').text('❌');
-    $categoryContainer.append($removeCategories);
-
-    const $categories = $('<span class="categories">').text(data.category_name);
-
-    $categoryContainer.append($categories);
-
-    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
-
-    // Append Footer tags
-    $taskFooter.append($categoryContainer);
-
     // Append $output
-    $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
+    $taskContent.append($taskHeader).append($taskBody);
     $output.append($checkbox).append($taskContent);
 
     return $output;
