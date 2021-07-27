@@ -10,12 +10,12 @@ module.exports = (db) => {
 
   // GET/apis/tasks
   router.get("/tasks", (req, res) => {
-    let query = `SELECT tasks.*, users.name AS user_name, users.email, statuses.name AS status_name, 
+    let query = `SELECT tasks.*, users.name AS user_name, users.email, statuses.name AS status_name,
     categories.id  AS category_id, categories.name AS category_name
     FROM tasks
-    LEFT JOIN task_category ON tasks.id = task_category.task_id 
-    LEFT JOIN categories ON task_category.category_id  = categories.id 
-    LEFT JOIN statuses ON statuses.id  = tasks.status_id 
+    LEFT JOIN task_category ON tasks.id = task_category.task_id
+    LEFT JOIN categories ON task_category.category_id  = categories.id
+    LEFT JOIN statuses ON statuses.id  = tasks.status_id
     LEFT JOIN users ON tasks.user_id = users.id`;
     console.log(query);
     db.query(query)
@@ -43,6 +43,22 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  // GET/api/categories/tasks
+
+  router.get("/categories", (req,res) => {
+    db.query(`SELECT * FROM categories;`)
+    .then(data => {
+      const categoryTasks = data.rows;
+      res.json({categoryTasks});
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
+
 
   return router;
 };
