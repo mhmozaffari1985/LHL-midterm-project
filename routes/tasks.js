@@ -73,15 +73,26 @@ module.exports = (db) => {
 
   // POST tasks/update/:id route (edit task description):
   router.post("/update/:id", (req, res) => {
+    let data;
     let queryString = `
       UPDATE tasks
-      SET task_description = $1
+    `
+    if (req.body.task_description) {
+      data = req.body.task_description;
+      queryString += `SET task_description = $1`;
+    } 
+    if (req.body.task_title) {
+      data = req.body.task_title;
+      queryString += `SET task_title = $1`;
+    }
+    
+    queryString += `
       WHERE id = $2
       RETURNING *;
     `
-    let queryParams = [req.body.task_description, req.params.id];
+    let queryParams = [data, req.params.id];
 
-    console.log(queryString, queryParams);
+    // console.log(queryString, queryParams);
     db.query(queryString, queryParams)
       .then(() => {
         res.json({ success: true });
