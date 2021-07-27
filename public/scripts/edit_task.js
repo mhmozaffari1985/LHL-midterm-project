@@ -1,14 +1,17 @@
 // Edit button => showing editTextArea
-const editTask = (element) => {
+const editTask = (element, id) => {
   // finding editTextarea from the edit button(parent, children)
-  $($($($($(element).parent()).parent()).parent()).children()[2]).fadeToggle();
+  $($($(element).parents()[2]).children()[2]).fadeIn();
+  const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${id})">`).html('<i class="far fa-save"></i>Save'); // Save button
+  if ($($(element).parent()).children().length === 1) {
+    $($(element).parent()).append($saveButton);
+  }
 }
 
 const saveTask = (element, id) => {
-  const $textarea = $($($($($(element).parent()).parent()).parent()).children()[2]);
+  const $textarea = $($($(element).parents()[2]).children()[2]);
   const edittedText = $textarea.val();
 
-  console.log(edittedText)
   $.ajax({
     url: `/tasks/update/${id}`,
     type: 'POST',
@@ -16,7 +19,7 @@ const saveTask = (element, id) => {
   }).then(() => {
     console.log('Successfully update task');
     $textarea.fadeToggle();
-    location.reload();
+    loadTasks();
   }).catch((err) => {
     console.log(err);
   })

@@ -7,7 +7,7 @@ const deleteTask = (id) => {
       type: 'POST'
     }).then(() => {
       console.log('Successfully delete the item!')
-      location.reload();
+      loadTasks();
     }).catch((err) => {
       console.log(err);
     })
