@@ -72,7 +72,7 @@ const renderTasks = function(data) {
       })
 
       // Set category name/ lined thick are classes for styling.
-      let $categoryName = $('<h2 class="categoryName lined thick">').text(categoryName);
+      let $categoryName = $(`<h2 class="categoryName lined thick ${categoryName}">`).text(categoryName);
 
       // Appending and prepending tags
       $categoryList.prepend($categoryName);

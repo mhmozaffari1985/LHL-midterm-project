@@ -41,7 +41,7 @@ const createTaskElement = function(data) {
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories thin dashed" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
+    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
     $categoryContainer.append($removeCategories);
 
     // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
