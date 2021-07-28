@@ -50,15 +50,12 @@ const createTaskElement = function(data) {
     $taskFooter.append($categoryContainer);
   }
 
-
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
   $output.append($checkbox).append($taskContent);
 
   return $output;
 };
-
-
 
 // 2. Function to loop through example data set and render all tasks
 const renderTasks = function(data) {

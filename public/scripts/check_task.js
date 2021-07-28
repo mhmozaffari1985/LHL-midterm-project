@@ -6,6 +6,7 @@ const checkTask = (element, id) => {
   }).then(() => {
     console.log('The task completed!');
     $($(element).parent()).fadeOut();
+    loadTasks();
   }).catch((err) => {
     console.log(err);
   })

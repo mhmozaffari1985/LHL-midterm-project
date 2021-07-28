@@ -16,7 +16,8 @@ module.exports = (db) => {
     LEFT JOIN task_category ON tasks.id = task_category.task_id
     LEFT JOIN categories ON task_category.category_id  = categories.id
     LEFT JOIN statuses ON statuses.id  = tasks.status_id
-    LEFT JOIN users ON tasks.user_id = users.id`;
+    LEFT JOIN users ON tasks.user_id = users.id
+    WHERE tasks.status_id = 1`;
     console.log(query);
     db.query(query)
       .then(data => {
