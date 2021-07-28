@@ -142,6 +142,26 @@ body {
       margin: 1em;
       padding: 1em;
       // Category Header for /tasks/categories view
+      // Category colors
+      .Films {
+        background-color:	rgba(255, 154, 84,1);
+      }
+      .TV.Series {
+        background-color:	rgba(250, 208, 227,1);
+      }
+      .Restaurants.and.Cafes{
+        background-color:	rgba(122, 253, 255, 1);
+      }
+      .Books{
+        background-color: rgba(204, 204, 255,1);
+      }
+      .Shopping{
+        background-color:	rgba(204, 255, 204,1);
+      }
+      .Other{
+        background-color:	rgba(255, 255, 204,1);
+      }
+
       .categoryName {
         display: flex;
         // margin-left: 1.5em;
