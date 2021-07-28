@@ -33,12 +33,12 @@ const isRestoCafe = function (taskTitle,taskDesc) {
   })
 }
 
-// // Example runs
-// isRestoCafe('The Butcher Chef', 'asdjklhasdkjlasd').then(res => console.log(res));
-// isRestoCafe('Sukhothai', 'asdjklhasdkjlasd').then(res => console.log(res));
-// isRestoCafe('asdasdasdfdf', 'asdjklhasdkjlasd').then(res => console.log(res));
-// isRestoCafe('Blackstone Steakhouse and Grill', 'asdjklhasdkjlasd').then(res => console.log(res));
- isRestoCafe('Kingston Iranian Restaurant', 'asdjklhasdkjlasd').then(res => console.log(res));
+// Example runs
+isRestoCafe('The Butcher Chef', 'asdjklhasdkjlasd').then(res => console.log(res));
+isRestoCafe('Sukhothai', 'asdjklhasdkjlasd').then(res => console.log(res));
+isRestoCafe('asdasdasdfdf', 'asdjklhasdkjlasd').then(res => console.log(res));
+isRestoCafe('Blackstone Steakhouse and Grill', 'asdjklhasdkjlasd').then(res => console.log(res));
+isRestoCafe('Kingston Iranian Restaurant', 'asdjklhasdkjlasd').then(res => console.log(res));
 
 
 
