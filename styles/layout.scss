@@ -41,6 +41,8 @@ body {
   #mainContainer {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    width: 95%; // not specified before
 
     // Category Header for /tasks/categories view
     .categoryName {
@@ -65,7 +67,7 @@ body {
       align-self: center;
       padding: 1em;
       margin: 1em;
-      margin-left: 4em;
+      // margin-left: 4em;
       max-width: 800px;
       min-width: 600px;
       transition: all 0.4s ease-in-out;
