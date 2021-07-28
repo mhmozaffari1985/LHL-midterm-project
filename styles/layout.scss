@@ -204,7 +204,7 @@ body {
           .editTaskTitle {
             height: 50px;
             background: transparent;
-            // border: none;
+            border: none;
             outline: none;
             font-size: 1.5rem; //xx-large;
             overflow: hidden;
@@ -263,7 +263,7 @@ body {
           .editTextarea {
             height: 2em;
             width: 100%;
-            // border:none;
+            border:none;
             outline: none;
             background: transparent;
           }
@@ -310,11 +310,10 @@ body {
             .removeCategories {
               display: flex;
               padding: 0.5em;
-              // border-radius: 10px 10px 10px 10px;
+              border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style// border-radius: 10px 10px 10px 10px;
               // border: 2px solid rgb(119, 121, 255);
-              // background-color: rgb(119, 121, 255);
+              background-color:transparent;
               // color: white;
-              border:none;
               font-weight: bold;
             }
           }
