@@ -26,14 +26,14 @@ const createTaskElement = function(data) {
   const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
   const $editButton = $(`<button class="btn btn-outline-secondary" onClick="editTask(this, ${data.id})">`).html('<i class="far fa-edit"></i>Edit'); // Edit button
   // const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${data.id})">`).html('<i class="far fa-save"></i>Save'); // Save button
-  const $editTextarea = $('<textarea class="editTextarea"></textarea>');
+  // const $editTextarea = $('<textarea class="editTextarea"></textarea>');
 
   // Append Body Tags
   $editButtons.append($editButton)
   $taskBody.append($taskDescription).append($editButtons);
 
   // Append $output
-  $taskContent.append($taskHeader).append($taskBody).append($editTextarea);
+  $taskContent.append($taskHeader).append($taskBody);
   $output.append($checkbox).append($taskContent);
 
   return $output;
