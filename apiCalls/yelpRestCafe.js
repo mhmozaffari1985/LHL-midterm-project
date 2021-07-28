@@ -15,7 +15,7 @@ const isRestoCafe = function (taskTitle,taskDesc) {
     // Search in GTA
     client.search({
       term: taskTitle,
-      location: 'Greater Toronto Area'
+      location: 'Kingston, ON'
     }).then(response => {
       for (const restaurant of response.jsonBody.businesses){
         const restoName = restaurant.name.toLowerCase();
@@ -33,10 +33,13 @@ const isRestoCafe = function (taskTitle,taskDesc) {
   })
 }
 
-// Example runs
-isRestoCafe('The Butcher Chef', 'asdjklhasdkjlasd').then(res => console.log(res));
-isRestoCafe('Sukhothai', 'asdjklhasdkjlasd').then(res => console.log(res));
-isRestoCafe('asdasdasdfdf', 'asdjklhasdkjlasd').then(res => console.log(res));
-isRestoCafe('Blackstone Steakhouse and Grill', 'asdjklhasdkjlasd').then(res => console.log(res));
+// // Example runs
+// isRestoCafe('The Butcher Chef', 'asdjklhasdkjlasd').then(res => console.log(res));
+// isRestoCafe('Sukhothai', 'asdjklhasdkjlasd').then(res => console.log(res));
+// isRestoCafe('asdasdasdfdf', 'asdjklhasdkjlasd').then(res => console.log(res));
+// isRestoCafe('Blackstone Steakhouse and Grill', 'asdjklhasdkjlasd').then(res => console.log(res));
+ isRestoCafe('Kingston Iranian Restaurant', 'asdjklhasdkjlasd').then(res => console.log(res));
+
+
 
 module.exports = {isRestoCafe};
