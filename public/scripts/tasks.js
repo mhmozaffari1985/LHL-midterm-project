@@ -68,9 +68,10 @@ const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
   console.log(data.length);
 
+  // Code for custom number of columns
   const columns = 3;
   const rows = Math.ceil(data.length/columns);
-  let counter = 0;
+  let counter = 0; // Needed to access JSON data.
 
   for (let i = 0; i < rows; i++) {
     let $row = $('<div class="row">');
@@ -86,7 +87,7 @@ const renderTasks = function(data) {
     }
   }
 
-  // Code for no columns!
+  // Code for 1 column!
   // for (const someTask of data) { // loops through tasks
   //   if (someTask.status_id === 1) {
   //     $task = createTaskElement(someTask); // calls createTaskElement for each task
