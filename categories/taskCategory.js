@@ -4,6 +4,9 @@ const {isRestoCafe} = require('./yelpRestCafe');
 
 const addCategory = function (taskTitle,taskDesc) {
 
+  // 1. Check keywords?
+
+  // 2. Check exact APIs
   return Promise.all([
     isMovie(taskTitle,taskDesc),
     isSeries(taskTitle,taskDesc),
