@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
   const userID = req.session.userID;
 
   // check whether the userID cookie is existing or not
-  if (userID) {
+  if (userID) {    
     res.redirect('/tasks');
   } else {
     res.redirect('/users/login');
