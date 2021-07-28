@@ -117,7 +117,7 @@ module.exports = (db) => {
 
       db.query(queryString, queryParams)
         .then((data) => {
-          res.render("index", data.rows[0]);
+          res.render("index", req.session);
         })
         .catch(err => {
           res
@@ -131,10 +131,7 @@ module.exports = (db) => {
 
   // GET/tasks/categories
   router.get("/categories", (req,res) => {
-    const userID = req.session.userID;
-    const userEmail = req.session.userEmail;
-    const userName = req.session.userName;
-    res.render("categoryView", { id: userID, email: userEmail, name: userName });
+    res.render("categoryView", req.session);
   });
 
   router.post("/categories/delete/:id/:categoryId", (req, res) => {
