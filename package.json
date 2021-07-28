@@ -24,7 +24,8 @@
     "node-sass-middleware": "^0.11.0",
     "omdb-client": "^2.0.0",
     "pg": "^8.5.0",
-    "pg-native": "^3.0.0"
+    "pg-native": "^3.0.0",
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
