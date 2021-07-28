@@ -49,6 +49,13 @@ const renderTasks = function(data) {
     }
   }
 
+  // Code for custom number of columns
+  const columns = Math.ceil(categories.length/2);
+  const rows = Math.ceil(data.length/columns);
+  let counter = 0; // Needed to access JSON data.
+
+  console.log(columns);
+
   $('#allTasks').html(''); // Clears default text
 
   // Loops through categories

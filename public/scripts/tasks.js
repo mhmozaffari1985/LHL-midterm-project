@@ -60,7 +60,6 @@ const createTaskElement = function(data) {
 // 2. Function to loop through example data set and render all tasks
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
-  console.log(data.length);
 
   // Code for custom number of columns
   const columns = 3;
