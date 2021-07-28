@@ -15,7 +15,7 @@ const isRestoCafe = function (taskTitle,taskDesc) {
     // Search in GTA
     client.search({
       term: taskTitle,
-      location: 'Kingston, ON'
+      location: 'Greater Toronto Area'
     }).then(response => {
       for (const restaurant of response.jsonBody.businesses){
         const restoName = restaurant.name.toLowerCase();
