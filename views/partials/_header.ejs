@@ -2,9 +2,9 @@
   <nav id="navbar" class="sticky">
     <div>
       <h1>Smart TODO List</h1>
-      <p>Hi <%= name %>! What to-do today? </p>
+      <% if (userID) { %>
+      <p>Hi <%= userName %>! What to-do today? </p>
     </div>
-    <% if (id) { %>
 
     <div id='userAuthentication'>
 
