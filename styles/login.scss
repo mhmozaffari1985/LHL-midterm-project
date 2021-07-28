@@ -85,10 +85,10 @@ body {
             font-size: 14px;
             text-decoration: underline;
             display: inline-block;
-            margin-bottom: 54px;
+            margin-bottom: 3em;
 
             @media (max-width: 768px) {
-                margin-bottom: 16px;
+                margin-bottom: 1em;
             }
         }
 
@@ -96,6 +96,22 @@ body {
             font-size: 1em;
             color: #000;
             margin-bottom: 0;
+            display: flex;
+
+            form {
+                margin-left: 1em;
+
+                button {
+                    color: #080808;
+                    font-size: 14px;
+                    text-decoration: underline;
+                    display: inline-block;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                }
+
+            }
         }
     }
 

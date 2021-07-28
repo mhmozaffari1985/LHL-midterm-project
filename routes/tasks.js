@@ -106,7 +106,27 @@ module.exports = (db) => {
 
   // GET/tasks/ redirects to GET/
   router.get("/", (req,res) => {
-    res.redirect("/");
+    // if the users is logged in
+    const userID = req.session.userID;
+    if (userID) {
+      let queryString = `
+        SELECT * FROM users
+        WHERE id = $1;
+      `
+      let queryParams = [userID];
+
+      db.query(queryString, queryParams)
+        .then((data) => {
+          res.render("index", data.rows[0]);
+        })
+        .catch(err => {
+          res
+          .status(500)
+          .json({ error: err.message });
+        })
+    } else {
+      res.redirect('/users/login');
+    }
   });
 
   // GET/tasks/categories

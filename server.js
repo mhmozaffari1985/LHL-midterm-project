@@ -33,7 +33,8 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 app.use(cookieSession({
   name: 'session',
-  keys: ['midterm']
+  keys: ['midterm'],
+  maxAge: 60 * 60 * 1000 // 1 hour
 }));
 
 // Separated Routes for each Resource
@@ -55,7 +56,14 @@ app.use("/users", usersRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const userID = req.session.userID;
+
+  // check whether the userID cookie is existing or not
+  if (userID) {
+    res.redirect('/tasks');
+  } else {
+    res.redirect('/users/login');
+  }
 });
 
 app.listen(PORT, () => {
