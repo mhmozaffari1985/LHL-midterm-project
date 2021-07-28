@@ -62,7 +62,7 @@ const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
 
   // Code for custom number of columns
-  const columns = 3;
+  const columns = 3; // Change this number to adjust number of columns.
   const rows = Math.ceil(data.length/columns);
   let counter = 0; // Needed to access JSON data.
 

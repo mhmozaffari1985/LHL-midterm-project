@@ -52,25 +52,42 @@ const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
 
   // Code for custom number of columns
-  const columns = Math.ceil(categories.length/2);
-  const rows = Math.ceil(data.length/columns);
-  let counter = 0; // Needed to access JSON data.
+  const columns = 3; // Change this number to adjust number of columns.
+  const rows = Math.ceil(categories.length/columns);
+  let taskCounter = 0; // Needed to access JSON data.
+  let categoryCounter = 0; // Needed for category data.
 
   // Loops through categories
-  for (const category of categories) {
-    const $categoryList = $('<section class="categoryList">');
-    const $categoryName = $('<h2 class="categoryName">').text(category);
+  for (let i = 0; i < rows; i++) {
+    let $row = $('<div class="row">');
+    for (let j = 0; j < columns; j++) {
+      let $categoryList = $('<section class="categoryList column">');
+      let categoryName = categories[categoryCounter];
+      let categoryTasks = data.filter(obj => obj.category_name === categoryName);
 
-    // Loops through tasks
-    for (const someTask of data) {
-      if(someTask.status_id === 1 && someTask.category_name === category) {
-        $task = createTaskElement(someTask); // calls createTaskElement for each task
+      categoryTasks.forEach(obj => {
+        $task = createTaskElement(obj); // calls createTaskElement for each task
         $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
-      }
+      })
+
+      let $categoryName = $('<h2 class="categoryName">').text(categoryName);
+      $categoryList.prepend($categoryName);
+      $row.append($categoryList);
+      categoryCounter++;
+      $('#allTasks').prepend($row);
     }
 
-    $categoryList.prepend($categoryName);
-    $('#allTasks').append($categoryList);
+    // Code for one column:
+    // Loops through tasks
+    // for (const someTask of data) {
+    //   if(someTask.status_id === 1 && someTask.category_name === category) {
+    //     $task = createTaskElement(someTask); // calls createTaskElement for each task
+    //     $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
+    //   }
+    // }
+
+    // $categoryList.prepend($categoryName);
+    // $('#allTasks').append($categoryList);
   }
 
 };
