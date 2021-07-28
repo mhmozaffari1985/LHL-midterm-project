@@ -199,7 +199,9 @@ body {
           .deleteTask {
             display: flex;
             align-self: center;
-            min-width: 7em;
+            color: red;
+            background-color: transparent;
+            border: transparent;
           }
         }
 
