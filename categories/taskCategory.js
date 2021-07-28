@@ -34,8 +34,8 @@ const addCategory = function (taskTitle,taskDesc) {
   })
 };
 
-addCategory('Inception','').then(data => console.log(data));
-addCategory('Mistborn' ,'').then(data => console.log(data));
-addCategory('Seinfeld','').then(data => console.log(data));
-addCategory('Inception','').then(data => console.log(data));
+// addCategory('Inception','').then(data => console.log(data));
+// addCategory('Mistborn' ,'').then(data => console.log(data));
+// addCategory('Seinfeld','').then(data => console.log(data));
+// addCategory('Inception','').then(data => console.log(data));
 addCategory('The Butcher Chef','').then(data => console.log(data));
