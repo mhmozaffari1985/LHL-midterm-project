@@ -204,7 +204,7 @@ body {
           .editTaskTitle {
             height: 50px;
             background: transparent;
-            border: none;
+            // border: none;
             outline: none;
             font-size: 1.5rem; //xx-large;
             overflow: hidden;
@@ -263,14 +263,13 @@ body {
           .editTextarea {
             height: 2em;
             width: 100%;
+            // border:none;
             outline: none;
-            border: none;
             background: transparent;
           }
 
           .taskDescription {
             display: flex;
-
             height: auto;
             word-break: break-word;
             width: 85%;

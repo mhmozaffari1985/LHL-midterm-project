@@ -5,7 +5,7 @@ const editTask = (element, id) => {
   const originalDesc = $($($taskBody).children()[0]).text();
   $($originalDesc).remove();
 
-  const $editTextarea = $(`<textarea class="editTextarea" placeholder="${originalDesc}"></textarea>`);
+  const $editTextarea = $(`<textarea class="editTextarea dotted thin" placeholder="${originalDesc}"></textarea>`);
   $($taskBody).prepend($editTextarea);
   // finding editTextarea from the edit button(parent, children)
   $editButtons = $(element).parent();
@@ -15,7 +15,7 @@ const editTask = (element, id) => {
   $(element).remove();
   // add save button
   $($editButtons).append($saveButton);
-  
+
   // textarea focus when edit button is clicked
   $($textarea).focus();
 }
@@ -30,7 +30,7 @@ const editTitle = (element, id) => {
 
   $saveTitle = $(`<button class="saveTitle"><i class="far fa-save"></i></button>`)
   $($taskHeader).prepend($saveTitle);
-  $newTitle = (`<textarea class="editTaskTitle" placeholder="${originalTitle}"></textarea>`)
+  $newTitle = (`<textarea class="editTaskTitle thin dotted" placeholder="${originalTitle}"></textarea>`)
   $($taskHeader).prepend($newTitle);
 
   const $textarea = $($taskHeader).children()[0];
