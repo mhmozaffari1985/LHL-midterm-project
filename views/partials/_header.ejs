@@ -7,7 +7,11 @@
       <div>
 
         <form class="form-inline" action="/users/logout" method="POST">
-          <span style = "padding-right: 10px;">Logged In As: Not Implemented </span>
+          <% if (id) { %>
+            <span style = "padding-right: 10px;">Logged In As: <%= email %> </span>
+          <% } else { %>
+            <span style = "padding-right: 10px;">Logged In As: Not Implemented </span>
+          <% } %>
           <button type="submit" class="btn btn-danger" >Logout</button>
         </form>
 
