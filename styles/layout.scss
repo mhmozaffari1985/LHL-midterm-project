@@ -310,10 +310,11 @@ body {
             .removeCategories {
               display: flex;
               padding: 0.5em;
-              border-radius: 10px 10px 10px 10px;
-              border: 2px solid rgb(119, 121, 255);
-              background-color: rgb(119, 121, 255);
-              color: white;
+              // border-radius: 10px 10px 10px 10px;
+              // border: 2px solid rgb(119, 121, 255);
+              // background-color: rgb(119, 121, 255);
+              // color: white;
+              border:none;
               font-weight: bold;
             }
           }
