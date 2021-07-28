@@ -4,29 +4,29 @@
 
     <div id='userAuthentication'>
 
-      <% if (id) { %>
       <div>
+        <% if (id) { %>
 
         <form class="form-inline" action="/users/logout" method="POST">
-          <span style = "padding-right: 10px;">Logged In As: <%= email %> </span>
+          <span style = "padding-right: 10px;">Hi, <%= name %>! What to-do today? </span>
           <button type="submit" class="btn btn-danger" >Logout</button>
         </form>
-        
+
       </div>
 
       <% } else { %>
-        
+
         <div class = "form-inline">
-          
+
           <form action="/users/register" method="GET">
             <button style ="margin-inline-end: 10px" type ="submit" class="btn btn-primary" >Register</button>
           </form>
-          
+
           <form action="/users/login" method="GET">
             <button type="submit" class="btn btn-primary" >Login</button>
           </form>
         </div>
-        
+
       <% } %>
 
     </div>
