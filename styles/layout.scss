@@ -102,13 +102,6 @@ body {
         flex-direction: column;
         width: 100%;
 
-        .editTextarea {
-          display: none;
-          outline: none;
-          height: 80px;
-          margin-bottom: 1em;
-        }
-
         // This below p controls the margins for the taskHeader p and taskDescription p
         p {
           margin-top: 0px;
@@ -180,6 +173,14 @@ body {
           margin-top: 0.5em;
           margin-bottom: 0.5em; //1.5em;
           padding-bottom: 0.5em; //1em;
+
+          .editTextarea {
+            height: 2em;
+            width: 100%;
+            outline: none;
+            border: none;
+            background: transparent;
+          }
 
           .taskDescription {
             display: flex;
