@@ -80,18 +80,6 @@ body {
             }
         }
 
-        a.forgot-password-link {
-            color: #080808;
-            font-size: 14px;
-            text-decoration: underline;
-            display: inline-block;
-            margin-bottom: 3em;
-
-            @media (max-width: 768px) {
-                margin-bottom: 1em;
-            }
-        }
-
         &-footer-text {
             font-size: 1em;
             color: #000;
