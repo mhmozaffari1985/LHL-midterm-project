@@ -76,10 +76,20 @@ body {
       flex: 1;
     }
 
+    // Category List container for /tasks/categories view
+    .categoryList {
+      display: flex;
+      flex-direction: column;
+      background-color: #ebebeb;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+      margin: 1em;
+      padding: 1em;
+    }
+
     // Category Header for /tasks/categories view
     .categoryName {
       display: flex;
-      margin-left: 1.5em;
+      // margin-left: 1.5em;
       margin-right: 1em;
       width: fit-content;
       padding: 0.2em;
@@ -106,7 +116,6 @@ body {
       transition: all 0.4s ease-in-out;
       background-color: #ebebeb;
       background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
-      /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
       .checkbox{
         display: flex;
