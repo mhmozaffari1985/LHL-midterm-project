@@ -44,6 +44,21 @@ body {
     align-self: center;
     width: 95%; // not specified before
 
+    // Trying to add row and column specifications
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+    }
+
     // Category Header for /tasks/categories view
     .categoryName {
       display: flex;
