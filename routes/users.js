@@ -47,6 +47,8 @@ module.exports = (db) => {
         console.log(bcrypt.hashSync(password, 10));
         if (bcrypt.compareSync(password, data.rows[0].password)) {
           req.session.userID = data.rows[0].id;
+          req.session.userEmail = data.rows[0].email;
+          req.session.userName = data.rows[0].name;
           res.redirect('/tasks');
         } else {
           res.send('<script>alert("Your credential is not valid!"); window.location.href = "/users/login";</script>')
@@ -90,6 +92,8 @@ module.exports = (db) => {
             .then((data) => {
               console.log(data.rows);
               req.session.userID = data.rows[0].id;
+              req.session.userEmail = data.rows[0].email;
+              req.session.userName = data.rows[0].name;
               res.render('index', data.rows[0]);
             })
             .catch((err) => {

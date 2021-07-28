@@ -131,7 +131,10 @@ module.exports = (db) => {
 
   // GET/tasks/categories
   router.get("/categories", (req,res) => {
-    res.render("categoryView");
+    const userID = req.session.userID;
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    res.render("categoryView", { id: userID, email: userEmail, name: userName });
   });
 
   router.post("/categories/delete/:id/:categoryId", (req, res) => {
