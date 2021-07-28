@@ -14,7 +14,7 @@ module.exports = (db) => {
       VALUES ($1, $2, $3, $4)
       RETURNING *;
     `;
-    let queryParams = [req.body.task_title, req.body.task_desc, 1, 1];
+    let queryParams = [req.body.task_title, req.body.task_desc, req.session.userID, 1];
     // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
@@ -110,8 +110,8 @@ module.exports = (db) => {
     const userID = req.session.userID;
     if (userID) {
       let queryString = `
-        SELECT * FROM users
-        WHERE id = $1;
+        SELECT * FROM tasks
+        WHERE user_id = $1;
       `
       let queryParams = [userID];
 
