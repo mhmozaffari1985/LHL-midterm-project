@@ -2,6 +2,7 @@
 
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
+
   const $output = $('<article class="tasks">'); // Output is a tasks class article
 
   // Checkbox
@@ -65,13 +66,33 @@ const createTaskElement = function(data) {
 // 2. Function to loop through example data set and render all tasks
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
+  console.log(data.length);
 
-  for (const someTask of data) { // loops through tasks
-    if (someTask.status_id === 1) {
-      $task = createTaskElement(someTask); // calls createTaskElement for each task
-      $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+  const columns = 3;
+  const rows = Math.ceil(data.length/columns);
+  let counter = 0;
+
+  for (let i = 0; i < rows; i++) {
+    let $row = $('<div class="row">');
+    for (let j = 0; j < columns; j++) {
+      let $column = $('<div class="column">');
+      if (data[counter] && data[counter].status_id === 1) {
+        $task = createTaskElement(data[counter]); // calls createTaskElement for each task
+        $column.prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      }
+      $row.append($column);
+      $('#allTasks').append($row);
+      counter ++;
     }
   }
+
+  // Code for no columns!
+  // for (const someTask of data) { // loops through tasks
+  //   if (someTask.status_id === 1) {
+  //     $task = createTaskElement(someTask); // calls createTaskElement for each task
+  //     $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+  //   }
+  // }
 };
 
 // 3. Create a function to do this directly from the database API
