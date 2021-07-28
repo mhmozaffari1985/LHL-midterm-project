@@ -12,7 +12,8 @@ body {
     #navbar {
       display: flex;
       width: 100%;
-      background-color: pink;
+      background-color: black;
+      color: white;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -121,7 +122,7 @@ body {
           .taskTitle {
             font-size: xx-large;
           }
-          
+
           .editTaskTitle {
             height: 50px;
             background: transparent;
