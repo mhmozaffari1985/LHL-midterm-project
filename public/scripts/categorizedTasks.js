@@ -3,7 +3,7 @@
 
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
-  const $output = $('<article class="tasks">'); // Output is a tasks class article
+  const $output = $('<article class="tasks lined thin">'); // Output is a tasks class article
 
   // Checkbox
   const $checkbox = $(`<button class="checkbox" onClick="checkTask(this, ${data.id})"></button>`);
@@ -54,23 +54,27 @@ const renderTasks = function(data) {
   // Code for custom number of columns
   const columns = 3; // Change this number to adjust number of columns.
   const rows = Math.ceil(categories.length/columns);
-  let taskCounter = 0; // Needed to access JSON data.
   let categoryCounter = 0; // Needed for category data.
 
   // Loops through categories
   for (let i = 0; i < rows; i++) {
     let $row = $('<div class="row">');
     for (let j = 0; j < columns; j++) {
-      let $categoryList = $('<section class="categoryList column">');
-      let categoryName = categories[categoryCounter];
+      // Each list is a column.
+      let $categoryList = $('<section class="categoryList column thin lined">');
+      let categoryName = categories[categoryCounter]; // Store category name
       let categoryTasks = data.filter(obj => obj.category_name === categoryName);
 
+      // Creates tasks for each category.
       categoryTasks.forEach(obj => {
         $task = createTaskElement(obj); // calls createTaskElement for each task
         $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
       })
 
-      let $categoryName = $('<h2 class="categoryName">').text(categoryName);
+      // Set category name/ lined thick are classes for styling.
+      let $categoryName = $('<h2 class="categoryName lined thick">').text(categoryName);
+
+      // Appending and prepending tags
       $categoryList.prepend($categoryName);
       $row.append($categoryList);
       categoryCounter++;

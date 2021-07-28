@@ -3,7 +3,7 @@
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
 
-  const $output = $('<article class="tasks">'); // Output is a tasks class article
+  const $output = $('<article class="tasks lined thick">'); // Output is a tasks class article
 
   // Checkbox
   const $checkbox = $(`<button class="checkbox" onClick="checkTask(this, ${data.id})"></button>`);
