@@ -1,4 +1,3 @@
-const { promiseImpl } = require('ejs');
 const {isBook} = require ('./googleBooks');
 const {isSeries, isMovie} = require ('./omdbMovies');
 const {isRestoCafe} = require('./yelpRestCafe');
