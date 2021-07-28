@@ -41,23 +41,23 @@ module.exports = (db) => {
     `
     let queryParams = [email];
 
-    // console.log(queryString, queryParams);
     db.query(queryString, queryParams)
       .then((data) => {
-        console.log(bcrypt.hashSync(password, 10));
         if (bcrypt.compareSync(password, data.rows[0].password)) {
-          req.session.userID = data.rows[0].id;
-          req.session.userEmail = data.rows[0].email;
-          req.session.userName = data.rows[0].name;
+          req.session = {
+            userID: data.rows[0].id,
+            userEmail: data.rows[0].email,
+            userName: data.rows[0].name
+          }
           res.redirect('/tasks');
         } else {
-          res.send('<script>alert("Your credential is not valid!"); window.location.href = "/users/login";</script>')
+          res.send('<script>alert("Your credential is not valid!"); window.location.href = "/users/login";</script>');
         }
       })
       .catch((err) => {
         res
           .status(500)
-          .json({ error: err.message });
+          .send('<script>alert("Your credential is not valid!"); window.location.href = "/users/login";</script>');
       })
   })
 
@@ -83,24 +83,32 @@ module.exports = (db) => {
     let selectParams = [name, email];
     let insertParams = [name, email, bcrypt.hashSync(password, 10)];
 
+    // checking name or email is taken
     db.query(selectString, selectParams)
       .then((data) => {
         if (data.rows.length) {
           res.send('<script>alert("You already have an account!"); window.location.href = "/users/register";</script>')
         } else {
-          db.query(insertString, insertParams)
-            .then((data) => {
-              console.log(data.rows);
-              req.session.userID = data.rows[0].id;
-              req.session.userEmail = data.rows[0].email;
-              req.session.userName = data.rows[0].name;
-              res.render('index', data.rows[0]);
-            })
-            .catch((err) => {
-              res
-                .status(500)
-                .json({ error: err.message });
-            })
+          if (name && email && password) {
+            db.query(insertString, insertParams)
+              .then((data) => {
+                // console.log(data.rows);
+                req.session = {
+                  userID: data.rows[0].id,
+                  userEmail: data.rows[0].email,
+                  userName: data.rows[0].name,
+                }
+                console.log(req.session);
+                res.render('index', req.session);
+              })
+              .catch((err) => {
+                res
+                  .status(500)
+                  .json({ error: err.message });
+              })
+          } else {
+            res.send('<script>alert("Please enter valid email and password!"); window.location.href = "/users/register";</script>')
+          }
         }
       })
       .catch((err) => {

@@ -4,11 +4,11 @@
 
     <div id='userAuthentication'>
 
-      <% if (id) { %>
+      <% if (userID) { %>
       <div>
 
         <form class="form-inline" action="/users/logout" method="POST">
-          <span style = "padding-right: 10px;">Logged In As: <%= email %> </span>
+          <span style = "padding-right: 10px;">Logged In As: <%= userEmail %> </span>
           <button type="submit" class="btn btn-danger" >Logout</button>
         </form>
         
