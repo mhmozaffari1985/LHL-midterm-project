@@ -1,4 +1,4 @@
-// So that I can use .env file with npm dotenv
+// Use .env file with npm dotenv
 require('dotenv').config({ path: '../.env' });
 
 // Require the npm package for google-books-search

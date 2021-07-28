@@ -1,11 +1,11 @@
-// So that I can use .env file with npm dotenv
+// Use .env file with npm dotenv
 require('dotenv').config({ path: '../.env' });
 
 // Require the npm package for omdb-client
 const omdbApi = require('omdb-client');
 const key = process.env.OMDB_API_KEY;
 
-// Function to categorize based on OMDB API. Maybe need to change to promise?
+// Function to categorize based on OMDB API.
 const isMovie = function (taskTitle, taskDesc) {
   taskTitle = taskTitle.toLowerCase().trim();
   taskDesc = taskDesc.toLowerCase().trim();
@@ -39,7 +39,7 @@ const isMovie = function (taskTitle, taskDesc) {
 
 }
 
-// Function to categorize based on OMDB API. Maybe need to change to promise?
+// Function to categorize based on OMDB API.
 const isSeries = function (taskTitle, taskDesc) {
   taskTitle = taskTitle.toLowerCase().trim();
   taskDesc = taskDesc.toLowerCase().trim();
