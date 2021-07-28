@@ -2,6 +2,7 @@
 
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
+
   const $output = $('<article class="tasks">'); // Output is a tasks class article
 
   // Checkbox
@@ -14,7 +15,8 @@ const createTaskElement = function(data) {
   const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
   const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
   const $editTitle = $(`<div class="editTitle"><button onClick="editTitle(this, ${data.id})"><i class="far fa-edit"></i></button></div>`); // Set edit button for task title
-  const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('Delete Task'); // Set delete button tag
+  const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('❌')
+  //.html('<i class="fas fa-trash-alt"></i>'); //TRASH CAN Set delete button tag
 
   // Append Header Tags
   $taskHeader.append($taskTitle).append($editTitle).append($deleteTask);
@@ -39,19 +41,14 @@ const createTaskElement = function(data) {
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text('❌');
+    const $removeCategories = $(`<button class="removeCategories" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
     $categoryContainer.append($removeCategories);
-
-    const $categories = $('<span class="categories">').text(data.category_name);
-
-    $categoryContainer.append($categories);
 
     // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
 
     // Append Footer tags
     $taskFooter.append($categoryContainer);
   }
-
 
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
@@ -60,18 +57,37 @@ const createTaskElement = function(data) {
   return $output;
 };
 
-
-
 // 2. Function to loop through example data set and render all tasks
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
+  console.log(data.length);
 
-  for (const someTask of data) { // loops through tasks
-    if (someTask.status_id === 1) {
-      $task = createTaskElement(someTask); // calls createTaskElement for each task
-      $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+  // Code for custom number of columns
+  const columns = 3;
+  const rows = Math.ceil(data.length/columns);
+  let counter = 0; // Needed to access JSON data.
+
+  for (let i = 0; i < rows; i++) {
+    let $row = $('<div class="row">');
+    for (let j = 0; j < columns; j++) {
+      let $column = $('<div class="column">');
+      if (data[counter] && data[counter].status_id === 1) {
+        $task = createTaskElement(data[counter]); // calls createTaskElement for each task
+        $column.prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+      }
+      $row.append($column);
+      $('#allTasks').append($row);
+      counter ++;
     }
   }
+
+  // Code for 1 column!
+  // for (const someTask of data) { // loops through tasks
+  //   if (someTask.status_id === 1) {
+  //     $task = createTaskElement(someTask); // calls createTaskElement for each task
+  //     $('#allTasks').prepend($task); // takes return value and prepends (ensures order) it to the tasks container
+  //   }
+  // }
 };
 
 // 3. Create a function to do this directly from the database API

@@ -11,7 +11,7 @@ module.exports = (db) => {
   // GET/apis/tasks
   router.get("/tasks", (req, res) => {
     const userID = req.session.userID;
-    if(userID){      
+    if(userID){
       let query = `SELECT tasks.*, users.name AS user_name, users.email, statuses.name AS status_name,
       categories.id  AS category_id, categories.name AS category_name
       FROM tasks
@@ -19,7 +19,8 @@ module.exports = (db) => {
       LEFT JOIN categories ON task_category.category_id  = categories.id
       LEFT JOIN statuses ON statuses.id  = tasks.status_id
       LEFT JOIN users ON tasks.user_id = users.id
-      WHERE user_id = $1`;
+      WHERE user_id = $1
+      AND tasks.status_id = 1`;
       let queryParams = [userID];
       console.log(query);
       db.query(query, queryParams)
