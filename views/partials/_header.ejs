@@ -1,14 +1,16 @@
 <header>
   <nav id="navbar" class="sticky">
-    <h1>Smart TODO List</h1>
+    <div>
+      <h1>Smart TODO List</h1>
+      <p>Hi <%= name %>! What to-do today? </p>
+    </div>
+    <% if (id) { %>
 
     <div id='userAuthentication'>
 
       <div>
-        <% if (id) { %>
 
         <form class="form-inline" action="/users/logout" method="POST">
-          <span style = "padding-right: 10px;">Hi <%= name %>! What to-do today? </span>
           <button type="submit" class="btn btn-danger" >Logout</button>
         </form>
 
