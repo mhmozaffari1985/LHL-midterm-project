@@ -1,7 +1,7 @@
 'use strict';
 
 // Use .env file with npm dotenv
-require('dotenv').config({ path: '../.env' });
+// require('dotenv').config({ path: '../.env' });
 
 // Require the npm package for yelp-fusion:
 const yelp = require('yelp-fusion');

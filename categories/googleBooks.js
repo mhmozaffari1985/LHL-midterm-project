@@ -1,9 +1,10 @@
 // Use .env file with npm dotenv
-require('dotenv').config({ path: '../.env' });
+// require('dotenv').config({ path: '../.env' });
 
 // Require the npm package for google-books-search
 const books = require('google-books-search');
 const key = process.env.GOOGLE_API_KEY;
+
 
 // Function to categorize based on google books API. Maybe need to change to promise?
 const isBook = function (taskTitle, taskDesc) {

@@ -5,10 +5,12 @@
 
 const express = require('express');
 const router  = express.Router();
+const {addCategory} = require('../categories/taskCategory');
 
 module.exports = (db) => {
   // POST/tasks/add route:
-  router.post("/add", (req, res) => {
+  router.post("/add", async (req, res) => {
+    const autoCategory = await addCategory(req.body.task_title, req.body.task_desc);
     let queryString = `
       INSERT INTO tasks (task_title, task_description, user_id, status_id)
       VALUES ($1, $2, $3, $4)
@@ -18,8 +20,23 @@ module.exports = (db) => {
     // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
-      .then(() => {
-        res.redirect('/');
+      .then((data) => {
+        let queryStringAutoCategory = `INSERT INTO task_category 
+        (task_id, category_id) 
+        VALUES ($1, $2)
+        RETURNING *;`;
+        let queryParamsAutoCategory = [data.rows[0].id,autoCategory];
+        console.log(queryStringAutoCategory, queryParamsAutoCategory);
+        db.query(queryStringAutoCategory, queryParamsAutoCategory)
+        .then((data1) => {          
+          res.redirect('/');
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+        // res.redirect('/');
       })
       .catch(err => {
         res

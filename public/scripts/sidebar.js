@@ -13,7 +13,7 @@ $(document).ready(() => {
   if (pathname[0] === 'tasks') {
     console.log($tasks, $category)
     $($tasks).addClass('active')
-  } else if (pathname[0] = 'categories') {
+  } else if (pathname[0] === 'categories') {
     $($category).addClass('active');
   }
 })

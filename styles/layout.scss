@@ -123,7 +123,8 @@ body {
     .sidebar {
       flex-basis: 20%;
       background-color: #eee;
-      min-width: 280px;
+      min-width: 260px;
+      margin-right: 1em;
 
       .sidebarNav {
         position: relative;
@@ -183,13 +184,19 @@ body {
       }
     }
 
+    @media only screen and (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+    }
+
     .mainContainer-wrapper {
       display: flex;
       flex-direction: column;
       flex-basis: 100%;
       flex: 1;
-      padding-left:8em;
-      padding-right: 8em;
+      // padding-left:8em;
+      // padding-right: 8em;
 
       // Trying to add row and column specifications
     .row {
@@ -394,16 +401,22 @@ body {
             display:flex;
             flex-direction: row;
             flex-basis: 15%;
-            justify-content: space-evenly;
+            justify-content: flex-end;
             align-items: center;
-
+            
             button {
+              position: relative;
               display: flex;
               align-items: center;
-              width: 4em;
+              width: 1.5em;
               height: 1.5em;
               border: none;
               margin-right: 0.5em;
+
+              i {
+                position: absolute;
+                right: 0.22em;
+              }
             }
           }
         }
