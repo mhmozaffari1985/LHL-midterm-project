@@ -137,9 +137,7 @@ module.exports = (db) => {
 
   // GET/tasks/:categoryName --> Sidebar!
   router.get("/:categoryName", (req,res) => {
-    console.log(req.params.categoryName);
-    console.log(req.session);
-    res.render("sidebarLinks", req.session);
+    res.render(`${req.params.categoryName}`, req.session)
   })
 
   // Probably use this for scripts from sidebar
