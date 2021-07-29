@@ -98,7 +98,7 @@ module.exports = (db) => {
                   userEmail: data.rows[0].email,
                   userName: data.rows[0].name,
                 }
-                console.log(req.session);
+                // console.log(req.session);
                 res.render('index', req.session);
               })
               .catch((err) => {
