@@ -10,7 +10,7 @@ module.exports = () => {
         api_key: process.env.SERP_API_KEY,
         q: taskName
       };
-  
+
       const response = await superagent.get(URL).query(queryArguments);
       if (response.status >= 200 && response.status < 400) {
         return response.body;
@@ -32,7 +32,7 @@ module.exports = () => {
 
 
   const taskCategory = async function(APIResultJSON) {
-  
+
     const counterObj = {};
     const str = String(APIResultJSON).toLowerCase();
     const moviesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'movies', 'film', 'thriller', 'mystery', 'fantasy', 'adventure'];

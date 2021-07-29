@@ -16,10 +16,8 @@ INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Su
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Mistborn', 'Good book', 2, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('The Name of the Wind', 'Keep reading until book 3 comes out', 1, 1);
 
--- SHOPPING
+-- SHOPPING & OTHER
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Play Station 5', 'for having fantastic time', 2, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Bananas', 'Everything will be k', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Chicken', 'Need some for the new recipe', 1, 1);
-
--- OTHER
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Pay hydro bill', 'I like electricity', 1, 1);
