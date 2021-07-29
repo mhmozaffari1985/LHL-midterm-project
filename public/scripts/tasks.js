@@ -37,19 +37,30 @@ const createTaskElement = function(data) {
   const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
 
   // Only has tags if categories exist (this also handles removal for deletion)
-  if(data.category_name) {
+  
 
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
-
-    // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
-    $categoryContainer.append($removeCategories);
-
-    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
-
+    
+    let currentCat = false;
+    if(data.category_name) {
+      // For the real script, there should be a loop here for each category including the append step!
+      const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" id="currentCategory" onClick="deleteCategoryFromTask(${data.id},${data.category_id})">`).text(`❌ ${data.category_name}`);
+      $categoryContainer.append($removeCategories);
+      currentCat = true;
+    }
+    const $filmsCategory = $(`<button class="addCategoryButton Films" id="filmsCategory${data.id}" onClick="addCategoryToTask(${data.id},1)">`).text('➕\nFilms');
+    const $seriesCategory = $(`<button class="addCategoryButton TV Series" id="seriesCategory${data.id}" onClick="addCategoryToTask(${data.id},2)">`).text('➕\nSeries');
+    const $restaurantCategory = $(`<button class="addCategoryButton Restaurants and Cafes" id="restaurantCategory${data.id}" onClick="addCategoryToTask(${data.id},3)">`).text('➕\nResturants');
+    const $booksCategory = $(`<button class="addCategoryButton Books" id="booksCategory${data.id}" onClick="addCategoryToTask(${data.id},4)">`).text('➕\nBooks');
+    const $shoppingCategory = $(`<button class="addCategoryButton Shopping" id="shoppingCategory${data.id}" onClick="addCategoryToTask(${data.id},5)">`).text('➕\nShopping');
+    $categoryContainer.append($filmsCategory).append($seriesCategory).append($restaurantCategory).append($booksCategory).append($shoppingCategory);
+    
+    let $addCategory = $(`<button class="btn btn-outline-secondary" id="addCategory${data.id}" onClick="showCategories(${data.id})" style="border: none;">`).html('<i class="fas fa-plus-square"></i>'); // Set addCategory button
+    if(currentCat) {
+      $addCategory = $(`<button class="btn btn-outline-secondary" id="addCategory${data.id}" onClick="showCategories(${data.id})" style="border: none; display:none;">`).html('<i class="fas fa-plus-square"></i>'); // Set addCategory button
+    }
     // Append Footer tags
-    $taskFooter.append($categoryContainer)//.append($addCategory);
-  }
+    $taskFooter.append($categoryContainer).append($addCategory);
 
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($taskFooter);

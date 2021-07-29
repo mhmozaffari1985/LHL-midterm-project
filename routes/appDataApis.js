@@ -22,7 +22,7 @@ module.exports = (db) => {
       WHERE user_id = $1
       AND tasks.status_id = 1`;
       let queryParams = [userID];
-      console.log(query);
+      // console.log(query);
       db.query(query, queryParams)
         .then(data => {
           const tasks = data.rows;

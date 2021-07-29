@@ -26,7 +26,7 @@ module.exports = (db) => {
         VALUES ($1, $2)
         RETURNING *;`;
         let queryParamsAutoCategory = [data.rows[0].id,autoCategory];
-        console.log(queryStringAutoCategory, queryParamsAutoCategory);
+        // console.log(queryStringAutoCategory, queryParamsAutoCategory);
         db.query(queryStringAutoCategory, queryParamsAutoCategory)
         .then((data1) => {          
           res.redirect('/');
@@ -166,6 +166,27 @@ module.exports = (db) => {
       RETURNING *;
     `;
     let queryParams = [req.params.id, req.params.categoryId];
+    // console.log(queryString);
+    // console.log(queryParams);
+    db.query(queryString, queryParams)
+      .then(data => {
+        res.redirect('/');
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+  });
+
+  router.post("/categories/add/:id/:categoryId", (req, res) => {
+    let queryString = `
+    INSERT INTO task_category 
+    (task_id, category_id) 
+    VALUES ($1, $2)
+    RETURNING *;
+    `;
+    let queryParams = [req.params.id, req.params.categoryId];
     console.log(queryString);
     console.log(queryParams);
     db.query(queryString, queryParams)
@@ -178,6 +199,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       })
   });
+
 
   return router;
 

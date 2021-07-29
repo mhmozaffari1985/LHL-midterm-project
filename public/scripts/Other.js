@@ -60,7 +60,7 @@ const createTaskElement = function(data) {
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
 
-  let categoryTasks = data.filter(obj => obj.category_name === 'Other');
+  let categoryTasks = data.filter(obj => obj.category_name === 'Shopping & Other');
 
   // Code for custom number of columns
   const columns = 2; // Change this number to adjust number of columns.
