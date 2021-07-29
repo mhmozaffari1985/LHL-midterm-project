@@ -5,11 +5,11 @@ const editTask = (element, id) => {
   const originalDesc = $($($taskBody).children()[0]).text();
   $($originalDesc).remove();
 
-  const $editTextarea = $(`<textarea class="editTextarea" placeholder="${originalDesc}"></textarea>`);
+  const $editTextarea = $(`<textarea class="editTextarea"></textarea>`);
   $($taskBody).prepend($editTextarea);
   // finding editTextarea from the edit button(parent, children)
   $editButtons = $(element).parent();
-  const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${id}, '${originalDesc}')">`).html('<i class="far fa-save"></i>Save'); // Save button
+  const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${id}, '${originalDesc}')">`).html('<i class="far fa-save"></i>'); // Save button
   const $textarea = $($(element).parents()[1]).children()[0];
   // remove edit button
   $(element).remove();
@@ -17,7 +17,7 @@ const editTask = (element, id) => {
   $($editButtons).append($saveButton);
 
   // textarea focus when edit button is clicked
-  $($textarea).focus();
+  $($textarea).focus().val(originalDesc);
 }
 
 // Edit Title button => showing edit title textarea and save button
@@ -30,12 +30,12 @@ const editTitle = (element, id) => {
 
   $saveTitle = $(`<button class="saveTitle"><i class="far fa-save"></i></button>`)
   $($taskHeader).prepend($saveTitle);
-  $newTitle = (`<textarea class="editTaskTitle" placeholder="${originalTitle}"></textarea>`)
+  $newTitle = (`<textarea class="editTaskTitle"></textarea>`)
   $($taskHeader).prepend($newTitle);
 
   const $textarea = $($taskHeader).children()[0];
   // focus on the textarea if the edit button is clicked
-  $($textarea).focus();
+  $($textarea).focus().val(originalTitle);
 
   // in textarea: enter => no line break
   $($textarea).keypress(function(event) {
