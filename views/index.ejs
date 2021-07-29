@@ -27,6 +27,7 @@
     <script type="text/javascript" src="/scripts/check_task.js"></script>
     <script type="text/javascript" src="/scripts/delete_category_from_task.js"></script>
     <script type="text/javascript" src="/scripts/edit_task.js"></script>
+    <script type="text/javascript" src="/scripts/sidebar.js"></script>
 
 
   </head>
@@ -38,18 +39,8 @@
     
     <main id='mainContainer'>
 
-      <aside class="sidebar">
-        <nav class="sidebarNav">
-          <ul>
-            <li class="active"><a href="#">Films</a></li>
-            <li><a href="#">TV Series</a></li>
-            <li><a href="#">Restaurants and Cafes</a></li>
-            <li><a href="#">Books</a></li>
-            <li><a href="#">Shopping</a></li>
-            <li><a href="#">Other</a></li>
-          </ul>
-        </nav>
-      </aside>
+      <!-- SIDEBAR -->
+      <%- include('partials/_sidebar'); %>
       
       <div class="mainContainer-wrapper">
 
