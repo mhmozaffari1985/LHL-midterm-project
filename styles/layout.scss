@@ -2,17 +2,13 @@
 
 body {
 
-  // Pale wood
-  // background-color: #968f7e;
-  // background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
-
   // Less pale wood
   background-color: #96825a;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   color:black;
   display: flex;
   flex-direction: column;
-  font-family: "Karla", sans-serif;
+  font-family: "Itim", sans-serif;//"Karla", sans-serif;
 
   // Header Styling
   header {
@@ -122,10 +118,10 @@ body {
     // sidebar styling
     .sidebar {
       flex-basis: 20%;
-      background-color: #eee;
       max-width: 300px; //previously unspecified
       min-width: 200px;
       margin-right: 1em;
+      background-color: #ebebeb;
 
       .sidebarNav {
         position: relative;
