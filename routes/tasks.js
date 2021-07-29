@@ -135,9 +135,11 @@ module.exports = (db) => {
     res.render("categoryView", req.session);
   });
 
-  // GET/tasks/Films
-  router.get("/Films", (req,res) => {
-    res.render("filmView", req.session);
+  // GET/tasks/:categoryName --> Sidebar!
+  router.get("/:categoryName", (req,res) => {
+    console.log(req.params.categoryName);
+    console.log(req.session);
+    res.render("sidebarLinks", req.session);
   })
 
   // Probably use this for scripts from sidebar
