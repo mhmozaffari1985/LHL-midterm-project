@@ -7,13 +7,22 @@ $(document).ready(() => {
   $tv = $($subcategory).children()[1];
   $eat = $($subcategory).children()[2];
   $book = $($subcategory).children()[3];
-  $shopping = $($subcategory).children()[4];
-  $other = $($subcategory).children()[5];
+  $other = $($subcategory).children()[4];
 
   if (pathname[0] === 'tasks') {
-    console.log($tasks, $category)
+    // console.log($tasks, $category)
     $($tasks).addClass('active')
   } else if (pathname[0] === 'categories') {
     $($category).addClass('active');
+  } else if (pathname[0] === 'Films') {
+    $($film).addClass('active');
+  } else if (pathname[0] === 'TVSeries') {
+    $($tv).addClass('active');
+  } else if (pathname[0] === 'RestoCafe') {
+    $($eat).addClass('active');
+  } else if (pathname[0] === 'Books') {
+    $($book).addClass('active');
+  } else if (pathname[0] === 'Other') {
+    $($other).addClass('active');
   }
 })

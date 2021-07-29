@@ -12,9 +12,8 @@ INSERT INTO task_category (task_id, category_id) VALUES (8, 3);
 -- BOOKS
 INSERT INTO task_category (task_id, category_id) VALUES (9, 4);
 INSERT INTO task_category (task_id, category_id) VALUES (10, 4);
--- SHOPPING
+-- SHOPPING & OTHER
 INSERT INTO task_category (task_id, category_id) VALUES (11, 5);
 INSERT INTO task_category (task_id, category_id) VALUES (12, 5);
 INSERT INTO task_category (task_id, category_id) VALUES (13, 5);
--- OTHER
-INSERT INTO task_category (task_id, category_id) VALUES (14, 6);
+INSERT INTO task_category (task_id, category_id) VALUES (14, 5);
