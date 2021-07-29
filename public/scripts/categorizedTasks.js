@@ -48,37 +48,46 @@ const renderTasks = function(data) {
       categories.push(task.category_name)
     }
   }
+  categories.push('Uncategorized');
+  console.log(categories);
 
   $('#allTasks').html(''); // Clears default text
 
   // Code for custom number of columns
   const columns = 3; // Change this number to adjust number of columns.
-  const rows = Math.ceil(categories.length/columns);
+  const rows = 2; // Math.ceil(categories.length/columns); // This code only matters if you have several categories. We only have 5!
   let categoryCounter = 0; // Needed for category data.
 
   // Loops through categories
   for (let i = 0; i < rows; i++) {
     let $row = $('<div class="row">');
     for (let j = 0; j < columns; j++) {
-      // Each list is a column.
-      let $categoryList = $('<section class="categoryList column thin lined">');
       let categoryName = categories[categoryCounter]; // Store category name
-      let categoryTasks = data.filter(obj => obj.category_name === categoryName);
+      if (categoryName === null) {console.log('Found an item category with null name.')}
 
-      // Creates tasks for each category.
-      categoryTasks.forEach(obj => {
-        $task = createTaskElement(obj); // calls createTaskElement for each task
-        $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
-      })
+      // Only want category lists if there are items in that category
+      if(categoryName) {
+        // Each list is a column.
+        let $categoryList = $('<section class="categoryList column thin lined">');
+        let categoryTasks = data.filter(obj => obj.category_name === categoryName);
 
-      // Set category name/ lined thick are classes for styling.
-      let $categoryName = $(`<h2 class="categoryName lined thick ${categoryName}">`).text(categoryName);
+        // Creates tasks for each category.
+        categoryTasks.forEach(obj => {
+          console.log(obj.category_name)
+          $task = createTaskElement(obj); // calls createTaskElement for each task
+          $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
+        })
+          // Set category name/ lined thick are classes for styling.
+          let $categoryName = $(`<h2 class="categoryName lined thick ${categoryName}">`).text(categoryName);
 
-      // Appending and prepending tags
-      $categoryList.prepend($categoryName);
-      $row.append($categoryList);
+          // Appending and prepending tags
+          $categoryList.prepend($categoryName);
+          $row.append($categoryList);
+      }
+
+      // Move to next category and append row to the allTasks section.
       categoryCounter++;
-      $('#allTasks').prepend($row);
+      $('#allTasks').append($row);
     }
 
     // Code for one column:
