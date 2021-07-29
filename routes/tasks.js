@@ -59,7 +59,7 @@ module.exports = (db) => {
       RETURNING *;
     `;
     let queryParams = [req.params.id];
-    
+
     db.query(queryString, queryParams)
       .then(() => {
         res.json({ success: true});
@@ -80,12 +80,12 @@ module.exports = (db) => {
     if (req.body.task_description) {
       data = req.body.task_description;
       queryString += `SET task_description = $1`;
-    } 
+    }
     if (req.body.task_title) {
       data = req.body.task_title;
       queryString += `SET task_title = $1`;
     }
-    
+
     queryString += `
       WHERE id = $2
       RETURNING *;
@@ -135,9 +135,15 @@ module.exports = (db) => {
     res.render("categoryView", req.session);
   });
 
+  // GET/tasks/Films
+  router.get("/Films", (req,res) => {
+    res.render("filmView", req.session);
+  })
+
+  // Probably use this for scripts from sidebar
   router.post("/categories/delete/:id/:categoryId", (req, res) => {
     let queryString = `
-      DELETE FROM task_category      
+      DELETE FROM task_category
       WHERE task_id = $1
       AND category_id = $2
       RETURNING *;
