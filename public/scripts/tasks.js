@@ -36,19 +36,19 @@ const createTaskElement = function(data) {
   const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
 
   // Only has tags if categories exist (this also handles removal for deletion)
-  if(data.category_name) {
+  
 
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
-
+    if(data.category_name) {
     // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
+    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},${data.category_id})">`).text(`❌ ${data.category_name}`);
     $categoryContainer.append($removeCategories);
+  }
 
-    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+    const $addCategory = $(`<button class="addCategory" onClick="addCategoryToTask(${data.id},1)">`).text('➕'); // Set addCategory button
 
     // Append Footer tags
-    $taskFooter.append($categoryContainer)//.append($addCategory);
-  }
+    $taskFooter.append($categoryContainer).append($addCategory);
 
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
