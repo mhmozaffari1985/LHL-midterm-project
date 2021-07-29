@@ -3,7 +3,7 @@
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
 
-  const $output = $('<article class="tasks">'); // Output is a tasks class article
+  const $output = $('<article class="tasks lined thick">'); // Output is a tasks class article
 
   // Checkbox
   const $checkbox = $(`<button class="checkbox" onClick="checkTask(this, ${data.id})"></button>`);
@@ -41,7 +41,7 @@ const createTaskElement = function(data) {
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
 
     // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
+    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
     $categoryContainer.append($removeCategories);
 
     // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
@@ -60,10 +60,9 @@ const createTaskElement = function(data) {
 // 2. Function to loop through example data set and render all tasks
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
-  console.log(data.length);
 
   // Code for custom number of columns
-  const columns = 3;
+  const columns = 3; // Change this number to adjust number of columns.
   const rows = Math.ceil(data.length/columns);
   let counter = 0; // Needed to access JSON data.
 
