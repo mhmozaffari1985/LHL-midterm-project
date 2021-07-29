@@ -10,7 +10,7 @@ module.exports = () => {
         api_key: process.env.SERP_API_KEY,
         q: taskName
       };
-  
+
       const response = await superagent.get(URL).query(queryArguments);
       if (response.status >= 200 && response.status < 400) {
         return response.body;
@@ -32,21 +32,27 @@ module.exports = () => {
 
 
   const taskCategory = async function(APIResultJSON) {
-  
+
     const counterObj = {};
-    const str = APIResultJSON.toLowerCase();
-    const moviesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'series', 'movies', 'film', 'thriller', 'mystery', 'fantasy', 'adventure'];
+    const str = String(APIResultJSON).toLowerCase();
+    const moviesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'movies', 'film', 'thriller', 'mystery', 'fantasy', 'adventure'];
+    const seriesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'series', 'thriller', 'mystery', 'fantasy', 'adventure'];
     const booksArray = ['book, periodical, comic'];
     const restaurantArray = ['restaurant'];
     const productArray = ['product'];
 
     let moviesCount = 0;
+    let seriesCount = 0;
     let booksCount = 0;
     let restaurantsCount = 0;
     let productsCount = 0;
 
     moviesArray.forEach(element => {
       moviesCount += str.split(element).length - 1;
+    });
+
+    seriesArray.forEach(element => {
+      seriesCount += str.split(element).length - 1;
     });
 
     booksArray.forEach(element => {
@@ -61,17 +67,18 @@ module.exports = () => {
       productsCount += str.split(element).length - 1;
     });
 
-    counterObj['Films/Series'] = moviesCount;
+    counterObj.Films = moviesCount;
+    counterObj.Series = seriesCount;
     counterObj.Books = booksCount;
     counterObj.Restaurants = restaurantsCount;
     counterObj.Products = productsCount;
 
     let cat = Object.keys(counterObj).reduce((a, b) => counterObj[a] > counterObj[b] ? a : b);
     //return cat;
-    if (cat==='Films/Series') {
+    if (cat==='Films') {
       return 1; // 1 corresponds to Films
     };
-    if (cat==='Films/Series') {
+    if (cat==='Series') {
       return 2; // 2 corresponds to TV Series
     };
     if (cat==='Restaurants'){

@@ -158,3 +158,42 @@ const saveTask = (element, id, originalDesc, originalTitle) => {
     })
   }
 }
+
+
+// // Created function to delete the task category
+const deleteCategoryFromTask = (taskId, categroyId) => {   
+  
+  if (confirm("Do you really want to delete?")){
+    // if user clicked yes
+    $.ajax({
+      url: `/tasks/categories/delete/${taskId}/${categroyId}`,
+      type: 'POST'
+    }).then(() => {
+      console.log('Successfully delete the category from item!')
+      loadTasks();
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+};
+
+const showCategories = (taskId) => {  
+  $(`#addCategory${taskId}`).hide();
+  $(`#filmsCategory${taskId}`).show();
+  $(`#seriesCategory${taskId}`).show();
+  $(`#restaurantCategory${taskId}`).show();
+  $(`#booksCategory${taskId}`).show();
+  $(`#shoppingCategory${taskId}`).show();
+};
+// // Created function to delete the task category
+const addCategoryToTask = (taskId, categroyId) => {  
+    $.ajax({
+      url: `/tasks/categories/add/${taskId}/${categroyId}`,
+      type: 'POST'
+    }).then(() => {
+      console.log('Successfully add the category to this item!')
+      loadTasks();
+    }).catch((err) => {
+      console.log(err);
+    })  
+};

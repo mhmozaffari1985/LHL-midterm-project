@@ -33,7 +33,7 @@ const addCategory = async function (taskTitle,taskDesc) {
   })
   .catch(err => {
     console.log(err);
-    return 6; // If any errors, we categorize to other.
+    return 5; // If any errors, we categorize to Products.
   })
 };
 
