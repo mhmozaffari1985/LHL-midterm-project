@@ -124,6 +124,14 @@ const deleteCategoryFromTask = (taskId, categroyId) => {
   }
 };
 
+const showCategories = (taskId) => {  
+  $(`#addCategory${taskId}`).hide();
+  $(`#filmsCategory${taskId}`).show();
+  $(`#seriesCategory${taskId}`).show();
+  $(`#restaurantCategory${taskId}`).show();
+  $(`#booksCategory${taskId}`).show();
+  $(`#shoppingCategory${taskId}`).show();
+};
 // // Created function to delete the task category
 const addCategoryToTask = (taskId, categroyId) => {  
     $.ajax({

@@ -39,14 +39,25 @@ const createTaskElement = function(data) {
   
 
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
+    
+    let currentCat = false;
     if(data.category_name) {
-    // For the real script, there should be a loop here for each category including the append step!
-    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},${data.category_id})">`).text(`❌ ${data.category_name}`);
-    $categoryContainer.append($removeCategories);
-  }
-
-    const $addCategory = $(`<button class="addCategory" onClick="addCategoryToTask(${data.id},1)">`).text('➕'); // Set addCategory button
-
+      // For the real script, there should be a loop here for each category including the append step!
+      const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" id="currentCategory" onClick="deleteCategoryFromTask(${data.id},${data.category_id})">`).text(`❌ ${data.category_name}`);
+      $categoryContainer.append($removeCategories);
+      currentCat = true;
+    }
+    const $filmsCategory = $(`<button class="addCategoryButton" id="filmsCategory${data.id}" onClick="addCategoryToTask(${data.id},1)">`).text('➕Films');
+    const $seriesCategory = $(`<button class="addCategoryButton" id="seriesCategory${data.id}" onClick="addCategoryToTask(${data.id},2)">`).text('➕Series');
+    const $restaurantCategory = $(`<button class="addCategoryButton" id="restaurantCategory${data.id}" onClick="addCategoryToTask(${data.id},3)">`).text('➕Resturants');
+    const $booksCategory = $(`<button class="addCategoryButton" id="booksCategory${data.id}" onClick="addCategoryToTask(${data.id},4)">`).text('➕Books');
+    const $shoppingCategory = $(`<button class="addCategoryButton" id="shoppingCategory${data.id}" onClick="addCategoryToTask(${data.id},5)">`).text('➕Shopping');
+    $categoryContainer.append($filmsCategory).append($seriesCategory).append($restaurantCategory).append($booksCategory).append($shoppingCategory);
+    
+    let $addCategory = $(`<button id="addCategory${data.id}" onClick="showCategories(${data.id})">`).text('➕'); // Set addCategory button
+    if(currentCat) {
+      $addCategory = $(`<button id="addCategory${data.id}" onClick="showCategories(${data.id})" style="display:none;">`).text('➕'); // Set addCategory button
+    }
     // Append Footer tags
     $taskFooter.append($categoryContainer).append($addCategory);
 
