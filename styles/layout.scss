@@ -124,6 +124,7 @@ body {
       flex-basis: 20%;
       background-color: #eee;
       min-width: 260px;
+      margin-right: 1em;
 
       .sidebarNav {
         position: relative;
@@ -183,13 +184,19 @@ body {
       }
     }
 
+    @media only screen and (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+    }
+
     .mainContainer-wrapper {
       display: flex;
       flex-direction: column;
       flex-basis: 100%;
       flex: 1;
-      padding-left:8em;
-      padding-right: 8em;
+      // padding-left:8em;
+      // padding-right: 8em;
 
       // Trying to add row and column specifications
     .row {
