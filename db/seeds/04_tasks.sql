@@ -7,7 +7,7 @@ INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Av
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Game of Thrones', 'Dracarysssss', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Westworld', 'Robots and cowboys', 2, 1);
 
--- RESTAURANTS AND CAFES
+-- RESTAURANTS & CAFES
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('The Butcher Chef', 'Yummy', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Ghost Chicken', 'New fried chicken place', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Sukhothai', 'Great Thai Cuisine', 2, 1);

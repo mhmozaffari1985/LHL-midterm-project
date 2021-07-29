@@ -82,13 +82,13 @@ module.exports = () => {
       return 2; // 2 corresponds to TV Series
     };
     if (cat==='Restaurants'){
-      return 3; // 3 corresponds to Restaurants and Cafes
+      return 3; // 3 corresponds to Restaurants & Cafes
     };
     if (cat==='Books'){
       return 4; // 4 corresponds to Books
     };
     if (cat==='Products'){
-      return 5; // 4 corresponds to Books
+      return 5; // 5 corresponds to Shopping & Other
     };
   };
 

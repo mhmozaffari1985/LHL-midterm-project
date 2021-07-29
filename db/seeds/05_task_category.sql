@@ -5,7 +5,7 @@ INSERT INTO task_category (task_id, category_id) VALUES (3, 1);
 -- TV SERIES
 INSERT INTO task_category (task_id, category_id) VALUES (4, 2);
 INSERT INTO task_category (task_id, category_id) VALUES (5, 2);
--- RESTAURANTS AND CAFES
+-- RESTAURANTS & CAFES
 INSERT INTO task_category (task_id, category_id) VALUES (6, 3);
 INSERT INTO task_category (task_id, category_id) VALUES (7, 3);
 INSERT INTO task_category (task_id, category_id) VALUES (8, 3);

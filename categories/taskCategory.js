@@ -24,7 +24,7 @@ const addCategory = async function (taskTitle,taskDesc) {
       return 2; // 2 corresponds to TV Series
     }
     if (res[2]){
-      return 3; // 3 corresponds to Restaurants and Cafes
+      return 3; // 3 corresponds to Restaurants & Cafes
     }
     if (res[3]){
       return 4; // 4 corresponds to Books
@@ -33,7 +33,7 @@ const addCategory = async function (taskTitle,taskDesc) {
   })
   .catch(err => {
     console.log(err);
-    return 5; // If any errors, we categorize to Products.
+    return 5; // If any errors, we categorize to Shopping & Other.
   })
 };
 
