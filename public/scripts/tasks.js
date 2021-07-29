@@ -47,7 +47,7 @@ const createTaskElement = function(data) {
     // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
 
     // Append Footer tags
-    $taskFooter.append($categoryContainer);
+    $taskFooter.append($categoryContainer)//.append($addCategory);
   }
 
   // Append $output
