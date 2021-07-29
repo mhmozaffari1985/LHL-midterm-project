@@ -21,3 +21,8 @@ INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Pl
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Bananas', 'Everything will be k', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Chicken', 'Need some for the new recipe', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Pay hydro bill', 'I like electricity', 1, 1);
+
+-- DEMO
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Add a task', 'Show API categorization!', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show task interactions', 'Edit, delete, complete!', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show different lists', 'Sidebar magic!', 1, 1);
