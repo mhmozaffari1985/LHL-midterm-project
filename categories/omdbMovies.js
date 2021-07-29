@@ -3,8 +3,8 @@
 
 // Require the npm package for omdb-client
 const omdbApi = require('omdb-client');
-// const key = process.env.OMDB_API_KEY;
- const key = '84e01cc6';
+const key = process.env.OMDB_API_KEY;
+
 
 
 // Function to categorize based on OMDB API.

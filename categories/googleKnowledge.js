@@ -7,7 +7,7 @@ module.exports = () => {
     let URL = `https://serpapi.com/search.json?engine=google&gl=us&hl=en`;
     try {
       const queryArguments = {
-        api_key: '91d5c694c85616153d53bc1f4cad85645beec75050c9f2eaba55fc47929f49de',
+        api_key: process.env.SERP_API_KEY,
         q: taskName
       };
   
