@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+
+    <!-- External CSS - Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- External CSS - Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/add_task.css" type="text/css" />
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Link used for tweeter -->
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="/scripts/TVSeries.js"></script>
+    <script type="text/javascript" src="/scripts/delete_task.js"></script>
+    <script type="text/javascript" src="/scripts/check_task.js"></script>
+    <script type="text/javascript" src="/scripts/edit_task.js"></script>
+    <script type="text/javascript" src="/scripts/sidebar.js"></script>
+
+  </head>
+
+  <body>
+
+
+    <!-- HEADER -->
+    <%- include('partials/_header'); %>
+
+
+    <main id='mainContainer'>
+
+      <!-- SIDEBAR -->
+      <%- include('partials/_sidebar'); %>
+
+      <div class="mainContainer-wrapper">
+        <!-- Adding task form -->
+        <%- include('partials/_add_task') %>
+
+        <!-- TASK CARDS (ARTICLES) -- HEADER, BODY, FOOTER -->
+        <section id='allTasks'>
+
+
+
+        </section>
+
+      </div>
+    </main>
+
+  </body>
+</html>
