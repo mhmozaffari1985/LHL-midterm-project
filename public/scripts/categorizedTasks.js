@@ -55,6 +55,7 @@ const renderTasks = function(data) {
   // Code for custom number of columns
   const columns = 3; // Change this number to adjust number of columns.
   const rows = 2; // Math.ceil(categories.length/columns); // This code only matters if you have several categories. We only have 5!
+
   let categoryCounter = 0; // Needed for category data.
 
   // Loops through categories
