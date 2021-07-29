@@ -14,12 +14,10 @@ const createTaskElement = function(data) {
   // Task Header Tags
   const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
   const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-  // const $editTitle = $(`<div class="editTitle"><button onClick="editTitle(this, ${data.id})"><i class="far fa-edit"></i></button></div>`); // Set edit button for task title
   const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('❌')
   //.html('<i class="fas fa-trash-alt"></i>'); //TRASH CAN Set delete button tag
 
   // Append Header Tags
-  // $taskHeader.append($taskTitle).append($editTitle).append($deleteTask);
   $taskHeader.append($taskTitle).append($deleteTask);
 
   // Task Body Tags
@@ -37,30 +35,19 @@ const createTaskElement = function(data) {
   const $taskFooter = $('<footer class="taskFooter">'); // Set footer tag with taskFooter class
 
   // Only has tags if categories exist (this also handles removal for deletion)
-  
+  if(data.category_name) {
 
     const $categoryContainer = $('<div class="categoryContainer">'); // Set div with class categoryContainer
-    
-    let currentCat = false;
-    if(data.category_name) {
-      // For the real script, there should be a loop here for each category including the append step!
-      const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" id="currentCategory" onClick="deleteCategoryFromTask(${data.id},${data.category_id})">`).text(`❌ ${data.category_name}`);
-      $categoryContainer.append($removeCategories);
-      currentCat = true;
-    }
-    const $filmsCategory = $(`<button class="addCategoryButton" id="filmsCategory${data.id}" onClick="addCategoryToTask(${data.id},1)">`).text('➕Films');
-    const $seriesCategory = $(`<button class="addCategoryButton" id="seriesCategory${data.id}" onClick="addCategoryToTask(${data.id},2)">`).text('➕Series');
-    const $restaurantCategory = $(`<button class="addCategoryButton" id="restaurantCategory${data.id}" onClick="addCategoryToTask(${data.id},3)">`).text('➕Resturants');
-    const $booksCategory = $(`<button class="addCategoryButton" id="booksCategory${data.id}" onClick="addCategoryToTask(${data.id},4)">`).text('➕Books');
-    const $shoppingCategory = $(`<button class="addCategoryButton" id="shoppingCategory${data.id}" onClick="addCategoryToTask(${data.id},5)">`).text('➕Shopping');
-    $categoryContainer.append($filmsCategory).append($seriesCategory).append($restaurantCategory).append($booksCategory).append($shoppingCategory);
-    
-    let $addCategory = $(`<button id="addCategory${data.id}" onClick="showCategories(${data.id})">`).text('➕'); // Set addCategory button
-    if(currentCat) {
-      $addCategory = $(`<button id="addCategory${data.id}" onClick="showCategories(${data.id})" style="display:none;">`).text('➕'); // Set addCategory button
-    }
+
+    // For the real script, there should be a loop here for each category including the append step!
+    const $removeCategories = $(`<button class="removeCategories thin line ${data.category_name}" onClick="deleteCategoryFromTask(${data.id},'${data.category_id}')">`).text(`❌ ${data.category_name}`);
+    $categoryContainer.append($removeCategories);
+
+    // const $addCategory = $('<button class="addCategory">').text('Add Category To Item'); // Set addCategory button
+
     // Append Footer tags
-    $taskFooter.append($categoryContainer).append($addCategory);
+    $taskFooter.append($categoryContainer);
+  }
 
   // Append $output
   $taskContent.append($taskHeader).append($taskBody).append($taskFooter);
@@ -73,17 +60,19 @@ const createTaskElement = function(data) {
 const renderTasks = function(data) {
   $('#allTasks').html(''); // Clears default text
 
+  let categoryTasks = data.filter(obj => obj.category_name === 'Other');
+
   // Code for custom number of columns
-  const columns = 3; // Change this number to adjust number of columns.
-  const rows = Math.ceil(data.length/columns);
+  const columns = 2; // Change this number to adjust number of columns.
+  const rows = Math.ceil(categoryTasks.length/columns);
   let counter = 0; // Needed to access JSON data.
 
   for (let i = 0; i < rows; i++) {
     let $row = $('<div class="row">');
     for (let j = 0; j < columns; j++) {
       let $column = $('<div class="column">');
-      if (data[counter] && data[counter].status_id === 1) {
-        $task = createTaskElement(data[counter]); // calls createTaskElement for each task
+      if (categoryTasks[counter] && categoryTasks[counter].status_id === 1) {
+        $task = createTaskElement(categoryTasks[counter]); // calls createTaskElement for each task
         $column.prepend($task); // takes return value and prepends (ensures order) it to the tasks container
       }
       $row.append($column);

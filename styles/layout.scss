@@ -401,16 +401,22 @@ body {
             display:flex;
             flex-direction: row;
             flex-basis: 15%;
-            justify-content: space-evenly;
+            justify-content: flex-end;
             align-items: center;
-
+            
             button {
+              position: relative;
               display: flex;
               align-items: center;
-              width: 4em;
+              width: 1.5em;
               height: 1.5em;
               border: none;
               margin-right: 0.5em;
+
+              i {
+                position: absolute;
+                right: 0.22em;
+              }
             }
           }
         }
