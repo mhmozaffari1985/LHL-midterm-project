@@ -1,5 +1,4 @@
-// Test Script To Print User Names
-
+// Prints all tasks grouped by category
 
 // 1. Function to create a single task element
 const createTaskElement = function(data) {

@@ -1,4 +1,4 @@
-// Test Script To Print User Names
+// Prints all tasks in books category
 
 // 1. Function to create a single task element
 const createTaskElement = function(data) {
