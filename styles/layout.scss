@@ -27,7 +27,7 @@ body {
       align-items: center;
 
       div {
-        padding-left: 7em;
+        padding-left: 2em;//7em;
         min-width: 22em;
 
         h1 {
@@ -43,7 +43,7 @@ body {
       #userAuthentication {
         display: flex;
         flex-direction: row;
-        // margin-right:8em;
+        padding-left: 15em;
 
         div {
           display: flex;
@@ -123,7 +123,8 @@ body {
     .sidebar {
       flex-basis: 20%;
       background-color: #eee;
-      min-width: 260px;
+      max-width: 300px; //previously unspecified
+      min-width: 200px;
       margin-right: 1em;
 
       .sidebarNav {
@@ -168,7 +169,7 @@ body {
             &:not(.active):hover a {
               color: rgba(#000, 0.75);
             }
-            
+
             &.sidebarMain::after {
               content: '';
               position: absolute;
@@ -195,8 +196,8 @@ body {
       flex-direction: column;
       flex-basis: 100%;
       flex: 1;
-      // padding-left:8em;
-      // padding-right: 8em;
+      padding-left:8em;
+      padding-right: 8em;
 
       // Trying to add row and column specifications
     .row {
@@ -403,7 +404,7 @@ body {
             flex-basis: 15%;
             justify-content: flex-end;
             align-items: center;
-            
+
             button {
               position: relative;
               display: flex;
