@@ -123,8 +123,12 @@ body {
     .sidebar {
       flex-basis: 20%;
       background-color: #eee;
+<<<<<<< HEAD
       min-width: 300px;
       margin-right: 2em;
+=======
+      min-width: 260px;
+>>>>>>> b39f64ed11bce015d0557fc73cbee5e7fb4952ac
 
       .sidebarNav {
         position: relative;
@@ -189,6 +193,8 @@ body {
       flex-direction: column;
       flex-basis: 100%;
       flex: 1;
+      padding-left:8em;
+      padding-right: 8em;
 
       // Trying to add row and column specifications
     .row {
