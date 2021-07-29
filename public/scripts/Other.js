@@ -14,18 +14,17 @@ const createTaskElement = function(data) {
   // Task Header Tags
   const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
   const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-  const $editTitle = $(`<div class="editTitle"><button onClick="editTitle(this, ${data.id})"><i class="far fa-edit"></i></button></div>`); // Set edit button for task title
   const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('❌')
   //.html('<i class="fas fa-trash-alt"></i>'); //TRASH CAN Set delete button tag
 
   // Append Header Tags
-  $taskHeader.append($taskTitle).append($editTitle).append($deleteTask);
+  $taskHeader.append($taskTitle).append($deleteTask);
 
   // Task Body Tags
   const $taskBody = $('<div class="taskBody">'); // Set div with task body class
   const $taskDescription = $('<p class="taskDescription">').text(data.task_description); // Set p with taskDescription class
   const $editButtons = $('<div class="editButtons">') // Set div with editButtons class
-  const $editButton = $(`<button class="btn btn-outline-secondary" onClick="editTask(this, ${data.id})">`).html('<i class="far fa-edit"></i>Edit'); // Edit button
+  const $editButton = $(`<button class="btn btn-outline-secondary" onClick="editTask(this, ${data.id})">`).html('<i class="far fa-edit"></i>'); // Edit button
   // const $saveButton = $(`<button class="btn btn-outline-secondary" onClick="saveTask(this, ${data.id})">`).html('<i class="far fa-save"></i>Save'); // Save button
 
   // Append Body Tags
