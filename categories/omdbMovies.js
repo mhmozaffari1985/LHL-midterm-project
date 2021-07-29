@@ -1,9 +1,11 @@
 // Use .env file with npm dotenv
-require('dotenv').config({ path: '../.env' });
+// require('dotenv').config({ path: '../.env' });
 
 // Require the npm package for omdb-client
 const omdbApi = require('omdb-client');
-const key = process.env.OMDB_API_KEY;
+// const key = process.env.OMDB_API_KEY;
+ const key = '84e01cc6';
+
 
 // Function to categorize based on OMDB API.
 const isMovie = function (taskTitle, taskDesc) {
@@ -75,7 +77,7 @@ const isSeries = function (taskTitle, taskDesc) {
 }
 
 // // isMovie Tests
-// isMovie('Inception','Movie to watch').then(res => console.log('Promise works!',res));
+//isMovie('Inception','Movie to watch').then(res => console.log('Promise works!',res));
 // isMovie('asdkjhasdj', 'asdjkhasd');
 // isMovie('Harry Potter and the chamber of secrets', 'some test');
 // isMovie('Harry Potter', 'askjdhasdkj');

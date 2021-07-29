@@ -1,9 +1,10 @@
 const {isBook} = require ('./googleBooks');
 const {isSeries, isMovie} = require ('./omdbMovies');
 const {isRestoCafe} = require('./yelpRestCafe');
-
-const addCategory = function (taskTitle,taskDesc) {
-
+const googleKnowledge = require ('./googleKnowledge');
+const { categorizeTasks } = googleKnowledge();
+const addCategory = async function (taskTitle,taskDesc) {
+  const result = await categorizeTasks(taskTitle);
   // 1. Check keywords?
 
   // 2. Check exact APIs
@@ -11,7 +12,8 @@ const addCategory = function (taskTitle,taskDesc) {
     isMovie(taskTitle,taskDesc),
     isSeries(taskTitle,taskDesc),
     isRestoCafe(taskTitle,taskDesc),
-    isBook(taskTitle,taskDesc)
+    isBook(taskTitle,taskDesc),
+    result
   ])
   .then(res => {
     console.log(res);
@@ -27,6 +29,7 @@ const addCategory = function (taskTitle,taskDesc) {
     if (res[3]){
       return 4; // 4 corresponds to Books
     }
+    return res[4];
   })
   .catch(err => {
     console.log(err);
@@ -38,4 +41,6 @@ const addCategory = function (taskTitle,taskDesc) {
 // addCategory('Mistborn' ,'').then(data => console.log(data));
 // addCategory('Seinfeld','').then(data => console.log(data));
 // addCategory('Inception','').then(data => console.log(data));
-addCategory('The Butcher Chef','').then(data => console.log(data));
+// addCategory('The Butcher Chef','').then(data => console.log(data));
+// addCategory('Chair','').then(data => console.log(data));
+module.exports = {addCategory};
