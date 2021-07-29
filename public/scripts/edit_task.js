@@ -161,8 +161,8 @@ const saveTask = (element, id, originalDesc, originalTitle) => {
 
 
 // // Created function to delete the task category
-const deleteCategoryFromTask = (taskId, categroyId) => {   
-  
+const deleteCategoryFromTask = (taskId, categroyId) => {
+
   if (confirm("Do you really want to delete?")){
     // if user clicked yes
     $.ajax({
@@ -177,7 +177,7 @@ const deleteCategoryFromTask = (taskId, categroyId) => {
   }
 };
 
-const showCategories = (taskId) => {  
+const showCategories = (taskId) => {
   $(`#addCategory${taskId}`).hide();
   $(`#filmsCategory${taskId}`).show();
   $(`#seriesCategory${taskId}`).show();
@@ -186,7 +186,7 @@ const showCategories = (taskId) => {
   $(`#shoppingCategory${taskId}`).show();
 };
 // // Created function to delete the task category
-const addCategoryToTask = (taskId, categroyId) => {  
+const addCategoryToTask = (taskId, categroyId) => {
     $.ajax({
       url: `/tasks/categories/add/${taskId}/${categroyId}`,
       type: 'POST'
@@ -195,5 +195,5 @@ const addCategoryToTask = (taskId, categroyId) => {
       loadTasks();
     }).catch((err) => {
       console.log(err);
-    })  
+    })
 };

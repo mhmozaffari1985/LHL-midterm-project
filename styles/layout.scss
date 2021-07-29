@@ -66,10 +66,10 @@ body {
   .Books{
     background-color: #ccf;
   }
-  .Shopping{
-    background-color:	#cfc;
-  }
-  .Other{
+  // .Shopping{
+  //   background-color:	#cfc;
+  // }
+  .Shopping, .Other {
     background-color:	#ffc;
   }
 
@@ -237,10 +237,10 @@ body {
       .Books{
         background-color: rgba(204, 204, 255,1);
       }
-      .Shopping{
-        background-color:	rgba(204, 255, 204,1);
-      }
-      .Other{
+      // .Shopping{
+      //   background-color:	rgba(204, 255, 204,1);
+      // }
+      .Shopping, .Other{
         background-color:	rgba(255, 255, 204,1);
       }
 
