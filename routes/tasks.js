@@ -16,8 +16,8 @@ module.exports = (db) => {
       VALUES ($1, $2, $3, $4)
       RETURNING *;
     `;
-    let queryParams = [req.body.task_title, req.body.task_desc, 1, 1];
-     console.log(queryString, queryParams);
+    let queryParams = [req.body.task_title, req.body.task_desc, req.session.userID, 1];
+    // console.log(queryString, queryParams);
 
     db.query(queryString, queryParams)
       .then((data) => {
@@ -127,14 +127,15 @@ module.exports = (db) => {
     const userID = req.session.userID;
     if (userID) {
       let queryString = `
-        SELECT * FROM users
-        WHERE id = $1;
+        SELECT * FROM tasks
+        WHERE user_id = $1;
       `
       let queryParams = [userID];
 
       db.query(queryString, queryParams)
         .then((data) => {
-          res.render("index", data.rows[0]);
+          req.session.data = data.rows;
+          res.render("index", req.session);
         })
         .catch(err => {
           res
@@ -148,10 +149,7 @@ module.exports = (db) => {
 
   // GET/tasks/categories
   router.get("/categories", (req,res) => {
-    const userID = req.session.userID;
-    const userEmail = req.session.userEmail;
-    const userName = req.session.userName;
-    res.render("categoryView", { id: userID, email: userEmail, name: userName });
+    res.render("categoryView", req.session);
   });
 
   router.post("/categories/delete/:id/:categoryId", (req, res) => {

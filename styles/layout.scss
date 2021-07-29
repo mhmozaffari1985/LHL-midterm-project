@@ -1,30 +1,49 @@
 // See: https://sass-lang.com/
 
-
 body {
-  background-color: #EEE;
+
+  // Pale wood
+  // background-color: #968f7e;
+  // background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+
+  // Less pale wood
+  background-color: #96825a;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   color:black;
   display: flex;
   flex-direction: column;
+  font-family: "Karla", sans-serif;
 
   // Header Styling
   header {
+
     #navbar {
       display: flex;
       width: 100%;
-      background-color: pink;
+      background-color:black;
+      color:white; //black;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
-      h1 {
-        padding-left: 2em;
+      div {
+        padding-left: 7em;
+        min-width: 22em;
+
+        h1 {
+          margin-top: 1em;
+          margin-bottom: 0em;
+        }
+
+        p {
+          margin-bottom: 1em;
+        }
       }
 
       #userAuthentication {
         display: flex;
         flex-direction: row;
-        padding-right: 2em;
+        // margin-right:8em;
 
         div {
           display: flex;
@@ -34,38 +53,218 @@ body {
       }
     }
   }
+  // Category colors
+  .Films {
+    background-color:	#e2ae88;
+  }
+  .TV.Series {
+    background-color:	#fad0e3;
+  }
+  .Restaurants.and.Cafes{
+    background-color:	#afeff0fd;
+  }
+  .Books{
+    background-color: #ccf;
+  }
+  .Shopping{
+    background-color:	#cfc;
+  }
+  .Other{
+    background-color:	#ffc;
+  }
+
+  // Highlight-effect -- use later with archived tasks
+  .text-highlight {
+    font-style: normal;
+    border-radius: 1em 0 1em 0;
+    text-shadow: 1px 1px 1px #fff;
+    background-image:
+      linear-gradient(-100deg,
+        rgba(255,250,150,0.15),
+        rgba(255,250,150,0.8) 100%,
+        rgba(255,250,150,0.25)
+      );
+  }
+
+  // Hand-drawn box styling
+  .lined.thick{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:solid 7px #41403E;
+  }
+  .dotted.thick{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:dotted 5px #41403E;
+  }
+  .dashed.thick{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:dashed 5px #41403E;
+  }
+  .lined.thin{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:solid 2px #41403E;
+  }
+  .dotted.thin{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:dotted 2px #41403E;
+  }
+  .dashed.thin{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style
+    border:dashed 2px #41403E;
+  }
 
   // Main Container Styling
   #mainContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    min-height: calc(100vh - 110px);
+    // width: 90%; // not specified before
 
-    // Category Header for /tasks/categories view
-    .categoryName {
-      display: flex;
-      margin-left: 0.5em;
-      margin-right: 1em;
-      width: fit-content;
-      padding: 0.2em;
-      border-radius: 10px;
-      border: 2px solid rgb(119, 121, 255);
-      background-color: rgb(119, 121, 255);
-      color: white;
+    // sidebar styling
+    .sidebar {
+      flex-basis: 20%;
+      background-color: #eee;
+      min-width: 280px;
+
+      .sidebarNav {
+        position: relative;
+        margin: 0 10% 0 0;
+        // text-align: right;
+        // top: 50%;
+        // transform: translateY(-50%);
+        font-weight: bold;
+
+        ul {
+          list-style: none;
+
+          li.sidebarMain {
+            margin: 2em 0;
+          }
+
+          li {
+            position: relative;
+            margin: 0.5em 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+              line-height: 3em;
+              // text-transform: uppercase;
+              text-decoration: none;
+              color: rgba(#000, 0.35);
+              display: block;
+              transition: all ease-out 300ms;
+            }
+
+            &.active a {
+              color: black;
+            }
+
+            &:not(.active)::after {
+              opacity: 0.2;
+            }
+
+            &:not(.active):hover a {
+              color: rgba(#000, 0.75);
+            }
+            
+            &.sidebarMain::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 0.2em;
+              background: black;
+              left: 0;
+              bottom: 0;
+              background-image: linear-gradient(to right, #754424, #bbb895);
+            }
+          }
+        }
+      }
     }
+
+    .mainContainer-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      padding-left:8em;
+      padding-right: 8em;
+
+      // Trying to add row and column specifications
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: space-evenly;
+      width: 100%;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+    }
+
+    // Category List container for /tasks/categories view
+    .categoryList {
+      display: flex;
+      flex-direction: column;
+      background-color: #ebebeb;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+      margin: 1em;
+      padding: 1em;
+      // Category Header for /tasks/categories view
+      // Category colors
+      .Films {
+        background-color:rgba(226, 174, 136,1);
+      }
+      .TV.Series {
+        background-color:	rgba(250, 208, 227,1);
+      }
+      .Restaurants.and.Cafes{
+        background-color:rgba(175, 239, 240, 0.992);
+      }
+      .Books{
+        background-color: rgba(204, 204, 255,1);
+      }
+      .Shopping{
+        background-color:	rgba(204, 255, 204,1);
+      }
+      .Other{
+        background-color:	rgba(255, 255, 204,1);
+      }
+
+      .categoryName {
+        display: flex;
+        // margin-left: 1.5em;
+        margin-right: 1em;
+        width: fit-content;
+        padding: 0.2em;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
 
     // All Task Articles
     .tasks {
       display: flex;
       flex-direction: row;
       width: 95%;
-      border: 2px solid grey;
-      border-radius: 10px;
+      // border: 2px solid grey;
+      // border-radius: 10px;
       align-self: center;
       padding: 1em;
-      margin: 1em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      // margin-left: 4em;
       max-width: 800px;
-      min-width: 600px;
+      min-width: 400px;
       transition: all 0.4s ease-in-out;
+      background-color: #ebebeb;
+      background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
 
       .checkbox{
         display: flex;
@@ -109,18 +308,18 @@ body {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          margin-bottom: 1em;
+          margin-bottom: 0em; //0.5em; //1em;
 
           .taskTitle {
-            font-size: xx-large;
+            font-size: 1.5rem; //xx-large;
           }
-          
+
           .editTaskTitle {
             height: 50px;
             background: transparent;
             border: none;
             outline: none;
-            font-size: xx-large;
+            font-size: 1.5rem; //xx-large;
             overflow: hidden;
           }
 
@@ -148,6 +347,7 @@ body {
             button {
               border: none;
               outline: none;
+              background-color: transparent;
               height: 20px;
               width: 20px;
             }
@@ -157,7 +357,9 @@ body {
           .deleteTask {
             display: flex;
             align-self: center;
-            min-width: 7em;
+            color: red;
+            background-color: transparent;
+            border: transparent;
           }
         }
 
@@ -168,14 +370,14 @@ body {
           justify-content: space-between;
           border-bottom: solid rgb(87, 87, 87);
           margin-top: 0.5em;
-          margin-bottom: 1.5em;
-          padding-bottom: 1em;
+          margin-bottom: 0.5em; //1.5em;
+          padding-bottom: 0.5em; //1em;
 
           .editTextarea {
             height: 2em;
             width: 100%;
+            border:none;
             outline: none;
-            border: none;
             background: transparent;
           }
 
@@ -185,6 +387,7 @@ body {
             word-break: break-word;
             width: 85%;
             margin-right: 1em;
+            font-size: 1em;
           }
 
           .editButtons {
@@ -210,27 +413,19 @@ body {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+          height: fit-content;
 
           .categoryContainer {
             display:flex;
             width: 85%;
+            font-size: 0.8em;
 
-            .categories {
-              display: flex;
-              margin-right: 1em;
-              padding: 0.5em;
-              border-radius: 0px 10px 10px 0px;
-              border: 2px solid rgb(119, 121, 255);
-              background-color: rgb(119, 121, 255);
-              color: white;
-            }
             .removeCategories {
               display: flex;
               padding: 0.5em;
-              border-radius: 10px 0px 0px 10px;
-              border: 2px solid rgb(119, 121, 255);
-              background-color: rgb(119, 121, 255);
-              color: white;
+              border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; // Needed for hand-drawn box style// border-radius: 10px 10px 10px 10px;
+              // border: 2px solid rgb(119, 121, 255);
+              // color: white;
               font-weight: bold;
             }
           }
@@ -248,9 +443,11 @@ body {
       box-shadow: 4px 4px 2px 2px rgba(0, 0, 0, 0.4);
     }
 
+    }
   }
 }
 
-
-
-
+// hide scroll bar
+// body::-webkit-scrollbar {
+//   display: none;
+// }

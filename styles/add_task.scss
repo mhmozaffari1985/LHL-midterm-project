@@ -2,11 +2,17 @@
   width: 95%;
   display: flex;
   flex-direction: column;
-  // align-self: center;
+  align-self: center;
   margin: 1em;
+  padding: 1em;
   max-width: 800px;
   min-width: 600px;
+  background-color: #ebebeb;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
 
+  h2 {
+    font-weight: bolder;
+  }
   .new-task-content {
     display: flex;
     align-items: center;
@@ -15,16 +21,24 @@
       display: flex;
       flex-grow: 1;
       flex-direction: column;
-      
+      padding-top: 1em;
+      padding-bottom: 1em;
+
+      // Title Input
       input {
         margin-bottom: 10px;
+        background: none;
+        border:none;
       }
 
+      // Description Input
       textarea {
         height: 100px;
+        background: none;
+        border:none;
       }
     }
-    
+
     .new-task-button {
       // flex-grow: 1;
       display: flex;
@@ -33,8 +47,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: inherit; //not specified before
         border: none;
-        color: green;
+        color: black; //green;
 
         i {
           font-size: 2em;

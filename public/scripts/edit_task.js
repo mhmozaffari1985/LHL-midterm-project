@@ -15,7 +15,7 @@ const editTask = (element, id) => {
   $(element).remove();
   // add save button
   $($editButtons).append($saveButton);
-  
+
   // textarea focus when edit button is clicked
   $($textarea).focus();
 }
