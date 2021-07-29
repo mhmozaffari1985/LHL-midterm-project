@@ -34,7 +34,7 @@ module.exports = () => {
   const taskCategory = async function(APIResultJSON) {
   
     const counterObj = {};
-    const str = APIResultJSON.toLowerCase();
+    const str = String(APIResultJSON).toLowerCase();
     const moviesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'movies', 'film', 'thriller', 'mystery', 'fantasy', 'adventure'];
     const seriesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'series', 'thriller', 'mystery', 'fantasy', 'adventure'];
     const booksArray = ['book, periodical, comic'];
