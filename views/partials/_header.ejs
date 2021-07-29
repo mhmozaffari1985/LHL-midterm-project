@@ -8,13 +8,10 @@
 
     <div id='userAuthentication'>
 
-      <div>
+      <form class="form-inline" action="/users/logout" method="POST">
+        <button type="submit" class="btn btn-danger" >Logout</button>
+      </form>
 
-        <form class="form-inline" action="/users/logout" method="POST">
-          <button type="submit" class="btn btn-danger" >Logout</button>
-        </form>
-
-      </div>
 
       <% } else { %>
 

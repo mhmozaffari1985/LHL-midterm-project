@@ -16,6 +16,7 @@ body {
 
   // Header Styling
   header {
+
     #navbar {
       display: flex;
       width: 100%;
@@ -27,6 +28,7 @@ body {
 
       div {
         padding-left: 7em;
+        min-width: 22em;
 
         h1 {
           margin-top: 1em;
@@ -41,7 +43,7 @@ body {
       #userAuthentication {
         display: flex;
         flex-direction: row;
-        margin-right:8em;
+        // margin-right:8em;
 
         div {
           display: flex;
@@ -113,11 +115,75 @@ body {
   // Main Container Styling
   #mainContainer {
     display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 90%; // not specified before
+    flex-direction: row;
+    min-height: calc(100vh - 110px);
+    // width: 90%; // not specified before
 
-    // Trying to add row and column specifications
+    // sidebar styling
+    .sidebar {
+      flex-basis: 20%;
+      background-color: #eee;
+      min-width: 260px;
+      margin-right: 2em;
+
+      .sidebarNav {
+        position: relative;
+        margin: 0 15% 0 0;
+        // text-align: right;
+        // top: 50%;
+        // transform: translateY(-50%);
+        font-weight: bold;
+
+        ul {
+          list-style: none;
+
+          li {
+            position: relative;
+            margin: 2em 0;
+
+            a {
+              line-height: 3em;
+              // text-transform: uppercase;
+              text-decoration: none;
+              color: rgba(#000, 0.35);
+              display: block;
+              transition: all ease-out 300ms;
+            }
+
+            &.active a {
+              color: black;
+            }
+
+            &:not(.active)::after {
+              opacity: 0.2;
+            }
+
+            &:not(.active):hover a {
+              color: rgba(#000, 0.75);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 0.2em;
+              background: black;
+              left: 0;
+              bottom: 0;
+              background-image: linear-gradient(to right, #754424, #bbb895);
+            }
+          }
+        }
+      }
+    }
+
+    .mainContainer-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+
+      // Trying to add row and column specifications
     .row {
       display: flex;
       flex-direction: row;
@@ -369,9 +435,11 @@ body {
       box-shadow: 4px 4px 2px 2px rgba(0, 0, 0, 0.4);
     }
 
+    }
   }
 }
 
-
-
-
+// hide scroll bar
+// body::-webkit-scrollbar {
+//   display: none;
+// }
