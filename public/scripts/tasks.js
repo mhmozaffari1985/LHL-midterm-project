@@ -14,12 +14,13 @@ const createTaskElement = function(data) {
   // Task Header Tags
   const $taskHeader = $('<header class="taskHeader">'); // Set task header tag
   const $taskTitle = $('<p class="taskTitle">').text(data.task_title); // Set p tag in task header
-  const $editTitle = $(`<div class="editTitle"><button onClick="editTitle(this, ${data.id})"><i class="far fa-edit"></i></button></div>`); // Set edit button for task title
+  // const $editTitle = $(`<div class="editTitle"><button onClick="editTitle(this, ${data.id})"><i class="far fa-edit"></i></button></div>`); // Set edit button for task title
   const $deleteTask = $(`<button class="deleteTask btn btn-danger" onClick="deleteTask(${data.id})">`).text('❌')
   //.html('<i class="fas fa-trash-alt"></i>'); //TRASH CAN Set delete button tag
 
   // Append Header Tags
-  $taskHeader.append($taskTitle).append($editTitle).append($deleteTask);
+  // $taskHeader.append($taskTitle).append($editTitle).append($deleteTask);
+  $taskHeader.append($taskTitle).append($deleteTask);
 
   // Task Body Tags
   const $taskBody = $('<div class="taskBody">'); // Set div with task body class
