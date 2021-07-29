@@ -123,11 +123,11 @@ body {
     .sidebar {
       flex-basis: 20%;
       background-color: #eee;
-      min-width: 260px;
+      min-width: 280px;
 
       .sidebarNav {
         position: relative;
-        margin: 0 15% 0 0;
+        margin: 0 10% 0 0;
         // text-align: right;
         // top: 50%;
         // transform: translateY(-50%);
@@ -136,9 +136,16 @@ body {
         ul {
           list-style: none;
 
+          li.sidebarMain {
+            margin: 2em 0;
+          }
+
           li {
             position: relative;
-            margin: 2em 0;
+            margin: 0.5em 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             a {
               line-height: 3em;
@@ -160,8 +167,8 @@ body {
             &:not(.active):hover a {
               color: rgba(#000, 0.75);
             }
-
-            &::after {
+            
+            &.sidebarMain::after {
               content: '';
               position: absolute;
               width: 100%;
