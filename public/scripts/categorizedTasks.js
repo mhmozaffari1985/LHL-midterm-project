@@ -77,7 +77,7 @@ const renderTasks = function(data) {
       // Only want category lists if there are items in that category
       if(categoryName) {
         // Each list is a column.
-        let $categoryList = $('<section class="categoryList column thin lined">');
+        let $categoryList = $('<section class="categoryList column thick lined">');
         let categoryTasks = data.filter(obj => obj.category_name === categoryName);
 
         // Creates tasks for each category.
