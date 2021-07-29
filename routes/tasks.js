@@ -117,6 +117,7 @@ module.exports = (db) => {
 
       db.query(queryString, queryParams)
         .then((data) => {
+          req.session.data = data.rows;
           res.render("index", req.session);
         })
         .catch(err => {
