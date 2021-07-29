@@ -48,7 +48,6 @@ const renderTasks = function(data) {
       categories.push(task.category_name)
     }
   }
-  categories.push('Uncategorized');
   console.log(categories);
 
   $('#allTasks').html(''); // Clears default text
@@ -63,7 +62,16 @@ const renderTasks = function(data) {
     let $row = $('<div class="row">');
     for (let j = 0; j < columns; j++) {
       let categoryName = categories[categoryCounter]; // Store category name
-      if (categoryName === null) {console.log('Found an item category with null name.')}
+
+      // Uncategorized data.
+      if (categoryName === null) {
+
+        if(!categories.includes('Uncategorized')) {
+          categories.push('Uncategorized')
+        };
+        let categoryTasks = data.filter(obj => obj.category_name === null);
+        categoryTasks.forEach(obj => obj.category_name = 'Uncategorized');
+      }
 
       // Only want category lists if there are items in that category
       if(categoryName) {
@@ -73,7 +81,6 @@ const renderTasks = function(data) {
 
         // Creates tasks for each category.
         categoryTasks.forEach(obj => {
-          console.log(obj.category_name)
           $task = createTaskElement(obj); // calls createTaskElement for each task
           $categoryList.prepend($task); // takes return value and prepends (ensures order) it to the category name
         })
