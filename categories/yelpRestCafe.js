@@ -5,8 +5,7 @@
 
 // Require the npm package for yelp-fusion:
 const yelp = require('yelp-fusion');
-// const client = yelp.client(process.env.YELP_API_KEY);
-const client = yelp.client('0qVp7reT-LHyqZUL_o_-PI4rLXq4PF4FV-rZRAi94FlHE1wsnaENV5gcrOnYxKtMDZU5ug2aEcan_CdVDSdtB8vWnO3tnwNjc2y9GPxCdRT7R3pWqKckWv99nAwCYXYx');
+const client = yelp.client(process.env.YELP_API_KEY);
 
 const isRestoCafe = function (taskTitle,taskDesc) {
   taskTitle = taskTitle.toLowerCase().trim();
