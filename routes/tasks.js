@@ -126,22 +126,22 @@ module.exports = (db) => {
     // if the users is logged in
     const userID = req.session.userID;
     if (userID) {
-      let queryString = `
-        SELECT * FROM tasks
-        WHERE user_id = $1;
-      `
-      let queryParams = [userID];
+      res.render("index", req.session);
+      // let queryString = `
+      //   SELECT * FROM tasks
+      //   WHERE user_id = $1;
+      // `
+      // let queryParams = [userID];
 
-      db.query(queryString, queryParams)
-        .then((data) => {
-          req.session.data = data.rows;
-          res.render("index", req.session);
-        })
-        .catch(err => {
-          res
-          .status(500)
-          .json({ error: err.message });
-        })
+      // db.query(queryString, queryParams)
+      //   .then((data) => {
+      //     res.render("index", req.session);
+      //   })
+      //   .catch(err => {
+      //     res
+      //     .status(500)
+      //     .json({ error: err.message });
+      //   })
     } else {
       res.redirect('/users/login');
     }
