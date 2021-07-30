@@ -42,6 +42,9 @@ Smart TODO List is an app that auto-categorizes any tasks you enter into one of 
 ### Delete Task
 ![deleteTask]()
 
+### Complete List
+![completeList]()
+
 
 ## Getting Started
 
