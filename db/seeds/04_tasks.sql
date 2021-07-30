@@ -24,6 +24,9 @@ INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Pa
 
 -- DEMO
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Add a task', 'Show API categorization!', 1, 1);
-INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show task interactions', 'Edit, delete, complete!', 1, 1);
-INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show different lists', 'Sidebar magic!', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('API List', 'Google Books, Yelp, OMDB, Google SERP', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show task interactions', 'Add, edit, delete, complete!', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Edit and delete this task!', 'Show API categorization!', 1, 1);
+INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Show different lists', 'Sidebar magic and list completion!', 1, 1);
 INSERT INTO tasks (task_title, task_description, user_id, status_id) VALUES ('Stretch features?', 'More categories, move task boxes, prioritze, task archive, nested task, API accuracy.', 1, 1);
+

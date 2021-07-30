@@ -22,3 +22,5 @@ INSERT INTO task_category (task_id, category_id) VALUES (15, 5);
 INSERT INTO task_category (task_id, category_id) VALUES (16, 5);
 INSERT INTO task_category (task_id, category_id) VALUES (17, 5);
 INSERT INTO task_category (task_id, category_id) VALUES (18, 5);
+INSERT INTO task_category (task_id, category_id) VALUES (19, 5);
+INSERT INTO task_category (task_id, category_id) VALUES (20, 5);
