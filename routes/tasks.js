@@ -29,7 +29,7 @@ module.exports = (db) => {
         // console.log(queryStringAutoCategory, queryParamsAutoCategory);
         db.query(queryStringAutoCategory, queryParamsAutoCategory)
         .then((data1) => {          
-          res.redirect('/');
+          res.redirect('/tasks');
         })
         .catch(err => {
           res
