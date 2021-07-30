@@ -28,7 +28,7 @@ Smart TODO List is an app that auto-categorizes any tasks you enter into one of 
 ![categoryTasks](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/subcategory-page.png?raw=true)
 
 ### Add Task
-![addTask]()
+![addTask](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/add-task.gif)
 
 ### Edit Task
 ![editTask](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/edit-button.gif?raw=true)
@@ -37,13 +37,13 @@ Smart TODO List is an app that auto-categorizes any tasks you enter into one of 
 ![editCategory](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/edit-category.gif?raw=true)
 
 ### Complete Task
-![completeTask]()
+![completeTask](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/complete-task.gif)
 
 ### Delete Task
-![deleteTask]()
+![deleteTask](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/delete-task.gif)
 
 ### Complete List
-![completeList]()
+![completeList](https://github.com/mhmozaffari1985/LHL-midterm-project/blob/master/docs/complete-list.gif)
 
 
 ## Getting Started
